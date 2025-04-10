@@ -49,37 +49,39 @@
 
   :rcf)
 
-(comment
-  (def projector-raw
-    (:body (http/get "https://ailev.livejournal.com/1759764.html")))
-  (hickory-html projector-raw)
-  (def html-article
-    (first (jsoup/select
-            (slurp "https://ailev.livejournal.com/1759764.html")
-            "article.entry-content")))
+(defn element->m
+  [^Element element]
+  {:id (.id element)
+   :class-names (.classNames element)
+   :tag-name (.normalName element)
+   :attrs (->> (.attributes element)
+               .iterator
+               iterator-seq
+               (map (juxt (memfn ^Attribute getKey) (memfn ^Attribute getValue)))
+               (into {}))
+   :own-text (.ownText element)
+   :text (.text element)
+   :whole-text (.wholeText element)
+   :inner-html (.html element)
+   :outer-html (.outerHtml element)})
 
-  (hickory-html (:outer-html html-article))
+(defn jsoup-select-doc
+  [jsoup-doc css-query]
+  (let [elements (-> jsoup-doc
+                     (.select ^String css-query))]
+    (map element->m elements)))
 
-  (bootleg/convert-to (:outer-html html-article) :hickory-seq)
-  (spit "article.html" (:outer-html html-article))
-  :rcf)
+(defn jsoup-select-html
+  [html css-query]
+  (-> (Jsoup/parse html)
+      (jsoup-select-doc css-query)))
 
 (defn extract-article [sourse-html]
-  (:outer-html (first (jsoup/select sourse-html "article.entry-content"))))
+  (:outer-html (first (jsoup-select-html sourse-html "article.entry-content"))))
 
-
-(defn old-main [& args]
-  (let [sourse-url (first (:args (cli/parse-args *command-line-args*)))
+(defn -main [& args]
+  (let [sourse-url (first args)
         sourse-html (slurp sourse-url)]
     (prn (subs (extract-article sourse-html) 0 80))
-    (prn (:outer-html (first (jsoup/select sourse-html "meta[property=og:title]"))))))
+    (prn (:outer-html (first (jsoup-select-html sourse-html "meta[property=og:title]"))))))
 
-(defn greet
-  "Callable entry point to the application."
-  [data]
-  (println (str "Hello, " (or (:name data) "World") "!")))
-
-(defn -main
-  "I don't do a whole lot ... yet."
-  [& args]
-  (greet {:name (first args)}))
