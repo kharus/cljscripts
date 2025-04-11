@@ -79,9 +79,18 @@
 (defn extract-article [sourse-html]
   (:outer-html (first (jsoup-select-html sourse-html "article.entry-content"))))
 
+(defn extract-article-jsoup-doc
+  [^Document jsoup-doc]
+  (:outer-html (first (jsoup-select-doc jsoup-doc "article.entry-content"))))
+
+(defn extract-title-jsoup-doc
+  [^Document jsoup-doc]
+  (:outer-html (first (jsoup-select-doc jsoup-doc "meta[property=og:title]"))))
+
 (defn -main [& args]
   (let [sourse-url (first args)
-        sourse-html (slurp sourse-url)]
-    (prn (subs (extract-article sourse-html) 0 80))
-    (prn (:outer-html (first (jsoup-select-html sourse-html "meta[property=og:title]"))))))
+        sourse-html (slurp sourse-url)
+        jsoup-doc (Jsoup/parse sourse-html)]
+    (prn (subs (extract-article-jsoup-doc jsoup-doc) 0 80))
+    (prn (extract-title-jsoup-doc jsoup-doc))))
 
