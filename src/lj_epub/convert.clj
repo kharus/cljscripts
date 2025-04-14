@@ -51,17 +51,25 @@
 
 (defn extract-title-jsoup-doc
   [^Document jsoup-doc]
-    (-> (jsoup-select-doc jsoup-doc "meta[property=og:title]")
-        first
-        (get-in [:attrs "content"])))
+  (-> (jsoup-select-doc jsoup-doc "meta[property=og:title]")
+      first
+      (get-in [:attrs "content"])))
 
-(defn extract-data-jsoup-doc
+(defn extract-date-jsoup-doc
   [^Document jsoup-doc]
-    (-> (jsoup-select-doc jsoup-doc "time")
-         first
-         :text ;"2025-04-04 16:40:00"
-         (string/split #" ")
-         first))
+  (-> (jsoup-select-doc jsoup-doc "time")
+      first
+      :text ;"2025-04-04 16:40:00"
+      (string/split #" ")
+      first))
+
+(defn derive-file-name
+  [^Document jsoup-doc]
+  (let [title (extract-title-jsoup-doc jsoup-doc)
+        pub-date (extract-date-jsoup-doc jsoup-doc)]
+    (if (= "lytdybr" title)
+      (str title "-" pub-date)
+      title)))
 
 (defn -main [& args]
   (let [sourse-url (first args)
@@ -74,6 +82,9 @@
   (def sourse-html (slurp "https://ailev.livejournal.com/1759764.html"))
   (def jsoup-doc (Jsoup/parse sourse-html))
   (def title (extract-title-jsoup-doc jsoup-doc))
+  (def pub-date (extract-date-jsoup-doc jsoup-doc))
+
+  (derive-file-name jsoup-doc)
 
   (spit "content.opf"
         (selmer/render-file "content.opf"
