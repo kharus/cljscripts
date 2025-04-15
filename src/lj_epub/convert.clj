@@ -1,19 +1,19 @@
 (ns lj-epub.convert
-  (:require [hickory.core :as hc]
-            [selmer.parser :as selmer]
-            [clojure.string :as string])
-  (:import [org.jsoup Jsoup]
-           [org.jsoup.nodes Attribute Attributes Comment DataNode Document
-            DocumentType Element TextNode XmlDeclaration]
-           [org.jsoup.parser Tag Parser])
+  (:require
+   [clojure.java.io :refer [make-parents]]
+   [clojure.string :as string]
+   [hickory.core :as hc]
+   [selmer.parser :as selmer]
+   [babashka.fs :as fs])
+  (:import
+   [org.jsoup Jsoup]
+   [org.jsoup.nodes Attribute Document Element])
   (:gen-class))
 
 (defn hickory-html [raw-html]
   (->> (hc/as-hickory raw-html)
        (filter #(= (:tag %) :html))
        first))
-
-(selmer/set-resource-path! "/home/ruslan/src/bbscripts/templates")
 
 (defn element->m
   [^Element element]
@@ -74,9 +74,17 @@
 (defn -main [& args]
   (let [sourse-url (first args)
         sourse-html (slurp sourse-url)
-        jsoup-doc (Jsoup/parse sourse-html)]
+        jsoup-doc (Jsoup/parse sourse-html)
+        epub-file (derive-file-name jsoup-doc)
+        title (extract-title-jsoup-doc jsoup-doc)
+        target-path (fs/path "target" epub-file "content.opf")]
     (prn (subs (extract-article-jsoup-doc jsoup-doc) 0 80))
-    (prn (extract-title-jsoup-doc jsoup-doc))))
+    (fs/create-dirs (fs/parent target-path))
+    (spit (str target-path)
+          (selmer/render-file "content.opf"
+                              {:title title
+                               :uuid (java.util.UUID/randomUUID)
+                               :now (.format java.time.format.DateTimeFormatter/ISO_INSTANT (java.time.Instant/now))}))))
 
 (comment
   (def sourse-html (slurp "https://ailev.livejournal.com/1759764.html"))
@@ -85,6 +93,8 @@
   (def pub-date (extract-date-jsoup-doc jsoup-doc))
 
   (derive-file-name jsoup-doc)
+
+  (str (fs/path "target" "ququ" "content.opf"))
 
   (spit "content.opf"
         (selmer/render-file "content.opf"
