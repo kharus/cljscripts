@@ -77,14 +77,25 @@
         jsoup-doc (Jsoup/parse sourse-html)
         epub-file (derive-file-name jsoup-doc)
         title (extract-title-jsoup-doc jsoup-doc)
-        target-path (fs/path "target" epub-file "content.opf")]
-    (prn (subs (extract-article-jsoup-doc jsoup-doc) 0 80))
-    (fs/create-dirs (fs/parent target-path))
+        epub-dir (fs/path "target" epub-file)
+        target-path (fs/path epub-dir "OEBPS" "content.opf")
+        target-path-section (fs/path epub-dir "OEBPS" "Text" "Section0001.xhtml")
+        article (extract-article-jsoup-doc jsoup-doc)]
+    (fs/create-dirs "target")
+    (fs/copy-tree "resources/epub-template" epub-dir)
     (spit (str target-path)
           (selmer/render-file "content.opf"
                               {:title title
                                :uuid (java.util.UUID/randomUUID)
-                               :now (.format java.time.format.DateTimeFormatter/ISO_INSTANT (java.time.Instant/now))}))))
+                               :now (.format java.time.format.DateTimeFormatter/ISO_INSTANT (java.time.Instant/now))}))
+    (spit (str target-path-section)
+          (selmer/render-file "Section0001.xhtml"
+                              {:title title
+                               :article article}))
+    (fs/zip (str epub-dir ".epub")
+            (str epub-dir)
+            {:root (str epub-dir)})
+    ))
 
 (comment
   (def sourse-html (slurp "https://ailev.livejournal.com/1759764.html"))
@@ -96,24 +107,9 @@
 
   (str (fs/path "target" "ququ" "content.opf"))
 
-  (spit "content.opf"
-        (selmer/render-file "content.opf"
-                            {:title title
-                             :uuid (java.util.UUID/randomUUID)
-                             :now (.format java.time.format.DateTimeFormatter/ISO_INSTANT (java.time.Instant/now))}))
-
   (fs/zip "Попсовости обучения в нашем клубе не будет.epub"
           "Попсовости обучения в нашем клубе не будет, давать \"короткие концерты по справочнику\" не согласны"
           {:root "Попсовости обучения в нашем клубе не будет, давать \"короткие концерты по справочнику\" не согласны"})
 
-
-  (spit "Section0001.xhtml"
-        (selmer/render-file "Section0001.xhtml"
-                            {:title "Попсовости обучения в нашем клубе не будет, давать \"короткие концерты по справочнику\" не согласны"
-                             :article (:outer-html html-article)}))
-
-  (first (jsoup/select (slurp "quq.html") "meta[property=og:title]"))
-
-  (fs/copy-tree "epub-template" "Попсовости обучения в нашем клубе не будет, давать \"короткие концерты по справочнику\" не согласны")
 
   :rcf)
