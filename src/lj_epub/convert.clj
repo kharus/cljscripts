@@ -1,10 +1,9 @@
 (ns lj-epub.convert
   (:require
-   [clojure.java.io :refer [make-parents]]
-   [clojure.string :as string]
+   [babashka.fs :as fs]
+   [clojure.string :as str]
    [hickory.core :as hc]
-   [selmer.parser :as selmer]
-   [babashka.fs :as fs])
+   [selmer.parser :as selmer])
   (:import
    [org.jsoup Jsoup]
    [org.jsoup.nodes Attribute Document Element])
@@ -42,12 +41,13 @@
   (-> (Jsoup/parse html)
       (jsoup-select-doc css-query)))
 
-(defn extract-article [sourse-html]
-  (:outer-html (first (jsoup-select-html sourse-html "article.entry-content"))))
-
 (defn extract-article-jsoup-doc
   [^Document jsoup-doc]
-  (:outer-html (first (jsoup-select-doc jsoup-doc "article.entry-content"))))
+  (-> jsoup-doc
+      (jsoup-select-doc "article.entry-content")
+      first
+      :outer-html
+      (str/replace #"<br>--" "<li>")))
 
 (defn extract-title-jsoup-doc
   [^Document jsoup-doc]
@@ -60,7 +60,7 @@
   (-> (jsoup-select-doc jsoup-doc "time")
       first
       :text ;"2025-04-04 16:40:00"
-      (string/split #" ")
+      (str/split #" ")
       first))
 
 (defn derive-file-name
@@ -94,15 +94,15 @@
                                :article article}))
     (fs/zip (str epub-dir ".epub")
             (str epub-dir)
-            {:root (str epub-dir)})
-    ))
+            {:root (str epub-dir)})))
 
 (comment
   (def sourse-html (slurp "https://ailev.livejournal.com/1759764.html"))
   (def jsoup-doc (Jsoup/parse sourse-html))
   (def title (extract-title-jsoup-doc jsoup-doc))
-  (def pub-date (extract-date-jsoup-doc jsoup-doc))
+  (def article (extract-article-jsoup-doc jsoup-doc))
 
+  (spit "article.html" article)
   (derive-file-name jsoup-doc)
 
   (str (fs/path "target" "ququ" "content.opf"))
