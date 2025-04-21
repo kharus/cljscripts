@@ -80,7 +80,11 @@
         epub-dir (fs/path "target" epub-file)
         target-path (fs/path epub-dir "OEBPS" "content.opf")
         target-path-section (fs/path epub-dir "OEBPS" "Text" "Section0001.xhtml")
-        article (extract-article-jsoup-doc jsoup-doc)]
+        article (extract-article-jsoup-doc jsoup-doc)
+        art-jsoup (Jsoup/parse article)]
+    (prn (->>
+          (jsoup-select-doc art-jsoup "img")
+          (mapv #(get-in % [:attrs "src"]))))
     (fs/create-dirs "target")
     (fs/copy-tree "resources/epub-template" epub-dir)
     (spit (str target-path)
@@ -97,10 +101,17 @@
             {:root (str epub-dir)})))
 
 (comment
-  (def sourse-html (slurp "https://ailev.livejournal.com/1759764.html"))
+  (def sourse-html (slurp "1759764.html"))
   (def jsoup-doc (Jsoup/parse sourse-html))
   (def title (extract-title-jsoup-doc jsoup-doc))
   (def article (extract-article-jsoup-doc jsoup-doc))
+
+  (def art-jsoup (Jsoup/parse article))
+
+  (->>
+   (jsoup-select-doc art-jsoup "img")
+   (map #(get-in % [:attrs "src"])))
+
 
   (spit "article.html" article)
   (derive-file-name jsoup-doc)
