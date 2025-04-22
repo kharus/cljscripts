@@ -1,6 +1,8 @@
 (ns lj-epub.convert
   (:require
    [babashka.fs :as fs]
+   [babashka.http-client :as http]
+   [clojure.java.io :as io]
    [clojure.string :as str]
    [hickory.core :as hc]
    [selmer.parser :as selmer])
@@ -71,6 +73,12 @@
       (str title "-" pub-date)
       title)))
 
+(defn download-image
+  [epub-dir url]
+  (io/copy
+   (:body (http/get url {:as :stream}))
+   (fs/file (fs/path epub-dir (fs/file-name url)))))
+
 (defn -main [& args]
   (let [sourse-url (first args)
         sourse-html (slurp sourse-url)
@@ -81,12 +89,13 @@
         target-path (fs/path epub-dir "OEBPS" "content.opf")
         target-path-section (fs/path epub-dir "OEBPS" "Text" "Section0001.xhtml")
         article (extract-article-jsoup-doc jsoup-doc)
-        art-jsoup (Jsoup/parse article)]
-    (prn (->>
-          (jsoup-select-doc art-jsoup "img")
-          (mapv #(get-in % [:attrs "src"]))))
+        art-jsoup (Jsoup/parse article)] 
     (fs/create-dirs "target")
     (fs/copy-tree "resources/epub-template" epub-dir)
+    (run! (partial download-image (fs/path epub-dir "OEBPS" "Images"))
+          (->>
+           (jsoup-select-doc art-jsoup "img")
+           (mapv #(get-in % [:attrs "src"]))))
     (spit (str target-path)
           (selmer/render-file "content.opf"
                               {:title title
@@ -107,6 +116,10 @@
   (def article (extract-article-jsoup-doc jsoup-doc))
 
   (def art-jsoup (Jsoup/parse article))
+
+  (download-image "https://ic.pics.livejournal.com/ailev/696279/285800/285800_600.png")
+
+  (fs/file-name image-url)
 
   (->>
    (jsoup-select-doc art-jsoup "img")
