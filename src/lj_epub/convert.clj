@@ -104,7 +104,9 @@
     (spit (str target-path-section)
           (selmer/render-file "Section0001.xhtml"
                               {:title title
-                               :article article}))
+                               :article (str/replace article
+                                                     #"http[^ ]*ic.pics.livejournal.com/[^ ]+/([^\"']+)"
+                                                     "../Images/$1")}))
     (fs/zip (str epub-dir ".epub")
             (str epub-dir)
             {:root (str epub-dir)})))
@@ -117,7 +119,10 @@
 
   (def art-jsoup (Jsoup/parse article))
 
-  (download-image "https://ic.pics.livejournal.com/ailev/696279/285800/285800_600.png")
+  (def image-url "http dfa https://ic.pics.livejournal.com/ailev/696279/285800/285800_600.png")
+  (str/replace image-url
+               #"http[^ ]*ic.pics.livejournal.com/[^ ]+/([^\"']+)"
+               "../Images/$1")
 
   (fs/file-name image-url)
 
