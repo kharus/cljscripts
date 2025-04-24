@@ -79,6 +79,19 @@
    (:body (http/get url {:as :stream}))
    (fs/file (fs/path epub-dir (fs/file-name url)))))
 
+(defn embed-image-urls
+  "Change path of the images to relative URL inside epub"
+  [article]
+  (str/replace article
+               #"http[^ ]*ic.pics.livejournal.com/[^ ]+/([^\"']+)"
+               "../Images/$1"))
+
+(defn extract-image-urls
+  [art-jsoup]
+  (->>
+   (jsoup-select-doc art-jsoup "img")
+   (mapv #(get-in % [:attrs "src"]))))
+
 (defn -main [& args]
   (let [sourse-url (first args)
         sourse-html (slurp sourse-url)
@@ -89,13 +102,11 @@
         target-path (fs/path epub-dir "OEBPS" "content.opf")
         target-path-section (fs/path epub-dir "OEBPS" "Text" "Section0001.xhtml")
         article (extract-article-jsoup-doc jsoup-doc)
-        art-jsoup (Jsoup/parse article)] 
+        art-jsoup (Jsoup/parse article)]
     (fs/create-dirs "target")
     (fs/copy-tree "resources/epub-template" epub-dir)
     (run! (partial download-image (fs/path epub-dir "OEBPS" "Images"))
-          (->>
-           (jsoup-select-doc art-jsoup "img")
-           (mapv #(get-in % [:attrs "src"]))))
+          (extract-image-urls art-jsoup))
     (spit (str target-path)
           (selmer/render-file "content.opf"
                               {:title title
@@ -104,9 +115,7 @@
     (spit (str target-path-section)
           (selmer/render-file "Section0001.xhtml"
                               {:title title
-                               :article (str/replace article
-                                                     #"http[^ ]*ic.pics.livejournal.com/[^ ]+/([^\"']+)"
-                                                     "../Images/$1")}))
+                               :article (embed-image-urls article)}))
     (fs/zip (str epub-dir ".epub")
             (str epub-dir)
             {:root (str epub-dir)})))
