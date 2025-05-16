@@ -1,0 +1,2364 @@
+{
+    "id": 550,
+    "version": "2025-05-15T1900",
+    "test": false,
+    "changeLog": "Полностью обновлено \"Введение\": добавлена информация по организации сессий рабочего развития и прохождению стажировки. ",
+    "sections": [
+      {
+        "id": 67609,
+        "index": 0,
+        "title": "Введение",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": 67093
+      },
+      {
+        "id": 67610,
+        "index": 50,
+        "title": "Чему можно научиться в ходе стажировки",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 67611,
+        "index": 100,
+        "title": "Что нужно знать для успешного применения руководства",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 67612,
+        "index": 150,
+        "title": "Как проходить стажировку",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 67613,
+        "index": 200,
+        "title": "Памятка по факторам работоспособности",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 67614,
+        "index": 250,
+        "title": "Чеклист организации сессий рабочего развития",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 67615,
+        "index": 300,
+        "title": "1. Различать модели и физический мир",
+        "type": "HEADER",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 67616,
+        "index": 350,
+        "title": "Игра «Назови вещь»",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67095,
+        "updatedPrevVersionSectionId": 67095
+      },
+      {
+        "id": 67617,
+        "index": 400,
+        "title": "Собранность как фундаментальное мастерство",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67096,
+        "updatedPrevVersionSectionId": 67096
+      },
+      {
+        "id": 67618,
+        "index": 450,
+        "title": "Что такое собранность",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67097,
+        "updatedPrevVersionSectionId": 67097
+      },
+      {
+        "id": 67619,
+        "index": 500,
+        "title": "Собранность как прикладное мастерство",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67098,
+        "updatedPrevVersionSectionId": 67098
+      },
+      {
+        "id": 67620,
+        "index": 550,
+        "title": "Собранность как дисциплина",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67099,
+        "updatedPrevVersionSectionId": 67099
+      },
+      {
+        "id": 67621,
+        "index": 600,
+        "title": "Отличать модели и физический мир",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67100,
+        "updatedPrevVersionSectionId": 67100
+      },
+      {
+        "id": 67622,
+        "index": 650,
+        "title": "Осознавать разрыв между разными описаниями и реальностью",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67101,
+        "updatedPrevVersionSectionId": 67101
+      },
+      {
+        "id": 67623,
+        "index": 700,
+        "title": "Упражнение 1.1.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67102,
+        "updatedPrevVersionSectionId": 67102
+      },
+      {
+        "id": 67624,
+        "index": 750,
+        "title": "Видеть реальность",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67103,
+        "updatedPrevVersionSectionId": 67103
+      },
+      {
+        "id": 67625,
+        "index": 800,
+        "title": "Упражнение 1.2",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67104,
+        "updatedPrevVersionSectionId": 67104
+      },
+      {
+        "id": 67626,
+        "index": 850,
+        "title": "Что может помешать видеть реальность",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67105,
+        "updatedPrevVersionSectionId": 67105
+      },
+      {
+        "id": 67627,
+        "index": 900,
+        "title": "Ресурсное планирование",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67106,
+        "updatedPrevVersionSectionId": 67106
+      },
+      {
+        "id": 67628,
+        "index": 950,
+        "title": "Рабочая мощность",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67107,
+        "updatedPrevVersionSectionId": 67107
+      },
+      {
+        "id": 67629,
+        "index": 1000,
+        "title": "Усилитель собранности и проявитель реальности",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67108,
+        "updatedPrevVersionSectionId": 67108
+      },
+      {
+        "id": 67630,
+        "index": 1050,
+        "title": "Упражнение 1.3.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67109,
+        "updatedPrevVersionSectionId": 67109
+      },
+      {
+        "id": 67631,
+        "index": 1100,
+        "title": "Задание 1.4.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67110,
+        "updatedPrevVersionSectionId": 67110
+      },
+      {
+        "id": 67632,
+        "index": 1150,
+        "title": "2. Что такое онтологическая работа",
+        "type": "HEADER",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 67633,
+        "index": 1200,
+        "title": "Мышление и моделирование",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67112,
+        "updatedPrevVersionSectionId": 67112
+      },
+      {
+        "id": 67634,
+        "index": 1250,
+        "title": "Задание 2.1.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67113,
+        "updatedPrevVersionSectionId": 67113
+      },
+      {
+        "id": 67635,
+        "index": 1300,
+        "title": "Упражнение 2.2.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67114,
+        "updatedPrevVersionSectionId": 67114
+      },
+      {
+        "id": 67636,
+        "index": 1350,
+        "title": "Упражнение 2.3.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67115,
+        "updatedPrevVersionSectionId": 67115
+      },
+      {
+        "id": 67637,
+        "index": 1400,
+        "title": "Выделение объектов",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67116,
+        "updatedPrevVersionSectionId": 67116
+      },
+      {
+        "id": 67638,
+        "index": 1450,
+        "title": "Упражнение 2.4.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67117,
+        "updatedPrevVersionSectionId": 67117
+      },
+      {
+        "id": 67639,
+        "index": 1500,
+        "title": "Упражнение 2.5.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67118,
+        "updatedPrevVersionSectionId": 67118
+      },
+      {
+        "id": 67640,
+        "index": 1550,
+        "title": "Роль, метод и предметная область",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67119,
+        "updatedPrevVersionSectionId": 67119
+      },
+      {
+        "id": 67641,
+        "index": 1600,
+        "title": "Задание 2.6",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67120,
+        "updatedPrevVersionSectionId": 67120
+      },
+      {
+        "id": 67642,
+        "index": 1650,
+        "title": "Упражнение 2.7.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67121,
+        "updatedPrevVersionSectionId": 67121
+      },
+      {
+        "id": 67643,
+        "index": 1700,
+        "title": "Объекты для разных ролей",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67122,
+        "updatedPrevVersionSectionId": 67122
+      },
+      {
+        "id": 67644,
+        "index": 1750,
+        "title": "Упражнение 2.8.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67123,
+        "updatedPrevVersionSectionId": 67123
+      },
+      {
+        "id": 67645,
+        "index": 1800,
+        "title": "Индивидуальные объекты и категории",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67124,
+        "updatedPrevVersionSectionId": 67124
+      },
+      {
+        "id": 67646,
+        "index": 1850,
+        "title": "Упражнение 2.9.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67125,
+        "updatedPrevVersionSectionId": 67125
+      },
+      {
+        "id": 67647,
+        "index": 1900,
+        "title": "Отнесение к категории",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67126,
+        "updatedPrevVersionSectionId": 67126
+      },
+      {
+        "id": 67648,
+        "index": 1950,
+        "title": "Упражнение 2.10.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67127,
+        "updatedPrevVersionSectionId": 67127
+      },
+      {
+        "id": 67649,
+        "index": 2000,
+        "title": "Дополнительные замечания об индивидах и категориях",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67128,
+        "updatedPrevVersionSectionId": 67128
+      },
+      {
+        "id": 67650,
+        "index": 2050,
+        "title": "Отношения объектов",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67129,
+        "updatedPrevVersionSectionId": 67129
+      },
+      {
+        "id": 67651,
+        "index": 2100,
+        "title": "Упражнение 2.11.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67130,
+        "updatedPrevVersionSectionId": 67130
+      },
+      {
+        "id": 67652,
+        "index": 2150,
+        "title": "Описание сложных отношений и комплексных объектов",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67131,
+        "updatedPrevVersionSectionId": 67131
+      },
+      {
+        "id": 67653,
+        "index": 2200,
+        "title": "Что такое дребезг",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67132,
+        "updatedPrevVersionSectionId": 67132
+      },
+      {
+        "id": 67654,
+        "index": 2250,
+        "title": "Категории, классы и типы",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67133,
+        "updatedPrevVersionSectionId": 67133
+      },
+      {
+        "id": 67655,
+        "index": 2300,
+        "title": "Экземпляр класса",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67134,
+        "updatedPrevVersionSectionId": 67134
+      },
+      {
+        "id": 67656,
+        "index": 2350,
+        "title": "Надкласс — подкласс",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67135,
+        "updatedPrevVersionSectionId": 67135
+      },
+      {
+        "id": 67657,
+        "index": 2400,
+        "title": "Онтологии",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67136,
+        "updatedPrevVersionSectionId": 67136
+      },
+      {
+        "id": 67658,
+        "index": 2450,
+        "title": "3. Различать метод и работу",
+        "type": "HEADER",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 67659,
+        "index": 2500,
+        "title": "Зачем нужно различать метод и работу",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67138,
+        "updatedPrevVersionSectionId": 67138
+      },
+      {
+        "id": 67660,
+        "index": 2550,
+        "title": "Метод",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67139,
+        "updatedPrevVersionSectionId": 67139
+      },
+      {
+        "id": 67661,
+        "index": 2600,
+        "title": "Задание 3.1.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67140,
+        "updatedPrevVersionSectionId": 67140
+      },
+      {
+        "id": 67662,
+        "index": 2650,
+        "title": "Упражнение 3.2",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67141,
+        "updatedPrevVersionSectionId": 67141
+      },
+      {
+        "id": 67663,
+        "index": 2700,
+        "title": "Работа",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67142,
+        "updatedPrevVersionSectionId": 67142
+      },
+      {
+        "id": 67664,
+        "index": 2750,
+        "title": "Упражнение 3.3",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67143,
+        "updatedPrevVersionSectionId": 67143
+      },
+      {
+        "id": 67665,
+        "index": 2800,
+        "title": "Упражнение 3.4",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67144,
+        "updatedPrevVersionSectionId": 67144
+      },
+      {
+        "id": 67666,
+        "index": 2850,
+        "title": "Функциональное, конструктивное, ресурсное/стоимостное рассмотрения",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67145,
+        "updatedPrevVersionSectionId": 67145
+      },
+      {
+        "id": 67667,
+        "index": 2900,
+        "title": "Организовать работу",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67146,
+        "updatedPrevVersionSectionId": 67146
+      },
+      {
+        "id": 67668,
+        "index": 2950,
+        "title": "Делегирование как передача метода",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67147,
+        "updatedPrevVersionSectionId": 67147
+      },
+      {
+        "id": 67669,
+        "index": 3000,
+        "title": "Выбор экзокортекса",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67148,
+        "updatedPrevVersionSectionId": 67148
+      },
+      {
+        "id": 67670,
+        "index": 3050,
+        "title": "Убираем лишние работы",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67149,
+        "updatedPrevVersionSectionId": 67149
+      },
+      {
+        "id": 67671,
+        "index": 3100,
+        "title": "Задание 3.5",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67150,
+        "updatedPrevVersionSectionId": 67150
+      },
+      {
+        "id": 67672,
+        "index": 3150,
+        "title": "Задание 3.6",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67151,
+        "updatedPrevVersionSectionId": 67151
+      },
+      {
+        "id": 67673,
+        "index": 3200,
+        "title": "4. О языках и знаках",
+        "type": "HEADER",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 67674,
+        "index": 3250,
+        "title": "Теория языка",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67153,
+        "updatedPrevVersionSectionId": 67153
+      },
+      {
+        "id": 67675,
+        "index": 3300,
+        "title": "Тексты и язык",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67154,
+        "updatedPrevVersionSectionId": 67154
+      },
+      {
+        "id": 67676,
+        "index": 3350,
+        "title": "Знак, объект и концепт",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67155,
+        "updatedPrevVersionSectionId": 67155
+      },
+      {
+        "id": 67677,
+        "index": 3400,
+        "title": "Как мы интерпретируем знаки",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67156,
+        "updatedPrevVersionSectionId": 67156
+      },
+      {
+        "id": 67678,
+        "index": 3450,
+        "title": "Семантика языка",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67157,
+        "updatedPrevVersionSectionId": 67157
+      },
+      {
+        "id": 67679,
+        "index": 3500,
+        "title": "Задание 4.1",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67158,
+        "updatedPrevVersionSectionId": 67158
+      },
+      {
+        "id": 67680,
+        "index": 3550,
+        "title": "Задание 4.2",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67159,
+        "updatedPrevVersionSectionId": 67159
+      },
+      {
+        "id": 67681,
+        "index": 3600,
+        "title": "Прагматика",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67160,
+        "updatedPrevVersionSectionId": 67160
+      },
+      {
+        "id": 67682,
+        "index": 3650,
+        "title": "Задание 4.3",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67161,
+        "updatedPrevVersionSectionId": 67161
+      },
+      {
+        "id": 67683,
+        "index": 3700,
+        "title": "Упражнение 4.4",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67162,
+        "updatedPrevVersionSectionId": 67162
+      },
+      {
+        "id": 67684,
+        "index": 3750,
+        "title": "Задание 4.5",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67163,
+        "updatedPrevVersionSectionId": 67163
+      },
+      {
+        "id": 67685,
+        "index": 3800,
+        "title": "Плотность концептуального пространства и качество онтологии",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67164,
+        "updatedPrevVersionSectionId": 67164
+      },
+      {
+        "id": 67686,
+        "index": 3850,
+        "title": "Задание 4.6",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67165,
+        "updatedPrevVersionSectionId": 67165
+      },
+      {
+        "id": 67687,
+        "index": 3900,
+        "title": "Мозг и искусственные нейросети",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67166,
+        "updatedPrevVersionSectionId": 67166
+      },
+      {
+        "id": 67688,
+        "index": 3950,
+        "title": "Упражнение 4.7",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67167,
+        "updatedPrevVersionSectionId": 67167
+      },
+      {
+        "id": 67689,
+        "index": 4000,
+        "title": "Упражнение 4.8",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67168,
+        "updatedPrevVersionSectionId": 67168
+      },
+      {
+        "id": 67690,
+        "index": 4050,
+        "title": "Физический мир и ментальное пространство",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67169,
+        "updatedPrevVersionSectionId": 67169
+      },
+      {
+        "id": 67691,
+        "index": 4100,
+        "title": "Задание 4.9",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67170,
+        "updatedPrevVersionSectionId": 67170
+      },
+      {
+        "id": 67692,
+        "index": 4150,
+        "title": "Модели и знаки",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67171,
+        "updatedPrevVersionSectionId": 67171
+      },
+      {
+        "id": 67693,
+        "index": 4200,
+        "title": "Вопросы 4.10",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67172,
+        "updatedPrevVersionSectionId": 67172
+      },
+      {
+        "id": 67694,
+        "index": 4250,
+        "title": "5. Концентрироваться на важном",
+        "type": "HEADER",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 67695,
+        "index": 4300,
+        "title": "Что такое внимание агента",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67174,
+        "updatedPrevVersionSectionId": 67174
+      },
+      {
+        "id": 67696,
+        "index": 4350,
+        "title": "Работа внимания агента",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67175,
+        "updatedPrevVersionSectionId": 67175
+      },
+      {
+        "id": 67697,
+        "index": 4400,
+        "title": "Ассоциативное и понятийное моделирование",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67176,
+        "updatedPrevVersionSectionId": 67176
+      },
+      {
+        "id": 67698,
+        "index": 4450,
+        "title": "Что такое важное",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67177,
+        "updatedPrevVersionSectionId": 67177
+      },
+      {
+        "id": 67699,
+        "index": 4500,
+        "title": "Задание 5.1",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67178,
+        "updatedPrevVersionSectionId": 67178
+      },
+      {
+        "id": 67700,
+        "index": 4550,
+        "title": "Фокусироваться на важном",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67179,
+        "updatedPrevVersionSectionId": 67179
+      },
+      {
+        "id": 67701,
+        "index": 4600,
+        "title": "Переключения и отвлечения",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67180,
+        "updatedPrevVersionSectionId": 67180
+      },
+      {
+        "id": 67702,
+        "index": 4650,
+        "title": "Функции экзокортекса",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67181,
+        "updatedPrevVersionSectionId": 67181
+      },
+      {
+        "id": 67703,
+        "index": 4700,
+        "title": "Фокус: формула быстрой работы",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67182,
+        "updatedPrevVersionSectionId": 67182
+      },
+      {
+        "id": 67704,
+        "index": 4750,
+        "title": "Мантра элегантности в работе/lean",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67183,
+        "updatedPrevVersionSectionId": 67183
+      },
+      {
+        "id": 67705,
+        "index": 4800,
+        "title": "Задание 5.2",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67184,
+        "updatedPrevVersionSectionId": 67184
+      },
+      {
+        "id": 67706,
+        "index": 4850,
+        "title": "Задание 5.3",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67185,
+        "updatedPrevVersionSectionId": 67185
+      },
+      {
+        "id": 67707,
+        "index": 4900,
+        "title": "6. Онтология моделирования",
+        "type": "HEADER",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 67708,
+        "index": 4950,
+        "title": "Варианты онтологического подхода",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67187,
+        "updatedPrevVersionSectionId": 67187
+      },
+      {
+        "id": 67709,
+        "index": 5000,
+        "title": "Классы классов",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67188,
+        "updatedPrevVersionSectionId": 67188
+      },
+      {
+        "id": 67710,
+        "index": 5050,
+        "title": "Классификаторы, таксономии",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67189,
+        "updatedPrevVersionSectionId": 67189
+      },
+      {
+        "id": 67711,
+        "index": 5100,
+        "title": "Упражнение 6.1.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67190,
+        "updatedPrevVersionSectionId": 67190
+      },
+      {
+        "id": 67712,
+        "index": 5150,
+        "title": "Разбиения, иерархии и другие деревья",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67191,
+        "updatedPrevVersionSectionId": 67191
+      },
+      {
+        "id": 67713,
+        "index": 5200,
+        "title": "Упражнение 6.2",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67192,
+        "updatedPrevVersionSectionId": 67192
+      },
+      {
+        "id": 67714,
+        "index": 5250,
+        "title": "Присвоение типа",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67193,
+        "updatedPrevVersionSectionId": 67193
+      },
+      {
+        "id": 67715,
+        "index": 5300,
+        "title": "Примеры систем типов",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67194,
+        "updatedPrevVersionSectionId": 67194
+      },
+      {
+        "id": 67716,
+        "index": 5350,
+        "title": "Выделение 4D индивидов",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67195,
+        "updatedPrevVersionSectionId": 67195
+      },
+      {
+        "id": 67717,
+        "index": 5400,
+        "title": "Композиция 4D объектов",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67196,
+        "updatedPrevVersionSectionId": 67196
+      },
+      {
+        "id": 67718,
+        "index": 5450,
+        "title": "Классы",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67197,
+        "updatedPrevVersionSectionId": 67197
+      },
+      {
+        "id": 67719,
+        "index": 5500,
+        "title": "Кортежи",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67198,
+        "updatedPrevVersionSectionId": 67198
+      },
+      {
+        "id": 67720,
+        "index": 5550,
+        "title": "Основной алгоритм онтологического моделирования",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67199,
+        "updatedPrevVersionSectionId": 67199
+      },
+      {
+        "id": 67721,
+        "index": 5600,
+        "title": "Задание 6.3",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67200,
+        "updatedPrevVersionSectionId": 67200
+      },
+      {
+        "id": 67722,
+        "index": 5650,
+        "title": "Добавление классов в онтологию",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67201,
+        "updatedPrevVersionSectionId": 67201
+      },
+      {
+        "id": 67723,
+        "index": 5700,
+        "title": "Функциональный физический объект",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67202,
+        "updatedPrevVersionSectionId": 67202
+      },
+      {
+        "id": 67724,
+        "index": 5750,
+        "title": "Замена элемента системы",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67203,
+        "updatedPrevVersionSectionId": 67203
+      },
+      {
+        "id": 67725,
+        "index": 5800,
+        "title": "Упражнение 6.4",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67204,
+        "updatedPrevVersionSectionId": 67204
+      },
+      {
+        "id": 67726,
+        "index": 5850,
+        "title": "Роли",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67205,
+        "updatedPrevVersionSectionId": 67205
+      },
+      {
+        "id": 67727,
+        "index": 5900,
+        "title": "Понимание ролей",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67206,
+        "updatedPrevVersionSectionId": 67206
+      },
+      {
+        "id": 67728,
+        "index": 5950,
+        "title": "Упражнение 6.5.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67207,
+        "updatedPrevVersionSectionId": 67207
+      },
+      {
+        "id": 67729,
+        "index": 6000,
+        "title": "Задание 6.6",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67208,
+        "updatedPrevVersionSectionId": 67208
+      },
+      {
+        "id": 67730,
+        "index": 6050,
+        "title": "7. Распознать дребезг",
+        "type": "HEADER",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 67731,
+        "index": 6100,
+        "title": "Шкала скорости мышления",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67210,
+        "updatedPrevVersionSectionId": 67210
+      },
+      {
+        "id": 67732,
+        "index": 6150,
+        "title": "Задание 7.1",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67211,
+        "updatedPrevVersionSectionId": 67211
+      },
+      {
+        "id": 67733,
+        "index": 6200,
+        "title": "Онтологический дребезг",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67212,
+        "updatedPrevVersionSectionId": 67212
+      },
+      {
+        "id": 67734,
+        "index": 6250,
+        "title": "Отношения объектов как источник дребезга",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67213,
+        "updatedPrevVersionSectionId": 67213
+      },
+      {
+        "id": 67735,
+        "index": 6300,
+        "title": "Упражнение 7.2",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67214,
+        "updatedPrevVersionSectionId": 67214
+      },
+      {
+        "id": 67736,
+        "index": 6350,
+        "title": "Работа с дребезгом как фундаментальный навык",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67215,
+        "updatedPrevVersionSectionId": 67215
+      },
+      {
+        "id": 67737,
+        "index": 6400,
+        "title": "Упражнение 7.3",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67216,
+        "updatedPrevVersionSectionId": 67216
+      },
+      {
+        "id": 67738,
+        "index": 6450,
+        "title": "Калибровка дребезга",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67217,
+        "updatedPrevVersionSectionId": 67217
+      },
+      {
+        "id": 67739,
+        "index": 6500,
+        "title": "Упражнение 7.4",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67218,
+        "updatedPrevVersionSectionId": 67218
+      },
+      {
+        "id": 67740,
+        "index": 6550,
+        "title": "Реакция на дребезг",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67219,
+        "updatedPrevVersionSectionId": 67219
+      },
+      {
+        "id": 67741,
+        "index": 6600,
+        "title": "Упражнение 7.5",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67220,
+        "updatedPrevVersionSectionId": 67220
+      },
+      {
+        "id": 67742,
+        "index": 6650,
+        "title": "Как мы распознаём дребезг",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67221,
+        "updatedPrevVersionSectionId": 67221
+      },
+      {
+        "id": 67743,
+        "index": 6700,
+        "title": "Поиск дребезга",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67222,
+        "updatedPrevVersionSectionId": 67222
+      },
+      {
+        "id": 67744,
+        "index": 6750,
+        "title": "Отслеживание изменений и дребезга",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67223,
+        "updatedPrevVersionSectionId": 67223
+      },
+      {
+        "id": 67745,
+        "index": 6800,
+        "title": "Метрики",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67224,
+        "updatedPrevVersionSectionId": 67224
+      },
+      {
+        "id": 67746,
+        "index": 6850,
+        "title": "Задание 7.6",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67225,
+        "updatedPrevVersionSectionId": 67225
+      },
+      {
+        "id": 67747,
+        "index": 6900,
+        "title": "Действия для изменения состояний объектов",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67226,
+        "updatedPrevVersionSectionId": 67226
+      },
+      {
+        "id": 67748,
+        "index": 6950,
+        "title": "Задание 7.7",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67227,
+        "updatedPrevVersionSectionId": 67227
+      },
+      {
+        "id": 67749,
+        "index": 7000,
+        "title": "8. Описания и шаблоны описаний",
+        "type": "HEADER",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 67750,
+        "index": 7050,
+        "title": "Описания как модели и знаки",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67229,
+        "updatedPrevVersionSectionId": 67229
+      },
+      {
+        "id": 67751,
+        "index": 7100,
+        "title": "Толкование описаний",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67230,
+        "updatedPrevVersionSectionId": 67230
+      },
+      {
+        "id": 67752,
+        "index": 7150,
+        "title": "Упражнение 8.1.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67231,
+        "updatedPrevVersionSectionId": 67231
+      },
+      {
+        "id": 67753,
+        "index": 7200,
+        "title": "Описания описаний и шаблоны описаний",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67232,
+        "updatedPrevVersionSectionId": 67232
+      },
+      {
+        "id": 67754,
+        "index": 7250,
+        "title": "Мета-языки и уровни моделирования",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67233,
+        "updatedPrevVersionSectionId": 67233
+      },
+      {
+        "id": 67755,
+        "index": 7300,
+        "title": "Упражнение 8.2.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67234,
+        "updatedPrevVersionSectionId": 67234
+      },
+      {
+        "id": 67756,
+        "index": 7350,
+        "title": "Онтологические уровни",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67235,
+        "updatedPrevVersionSectionId": 67235
+      },
+      {
+        "id": 67757,
+        "index": 7400,
+        "title": "Поиск или разработка онтологий",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67236,
+        "updatedPrevVersionSectionId": 67236
+      },
+      {
+        "id": 67758,
+        "index": 7450,
+        "title": "Упражнение 8.3.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67237,
+        "updatedPrevVersionSectionId": 67237
+      },
+      {
+        "id": 67759,
+        "index": 7500,
+        "title": "Упражнение 8.4.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67238,
+        "updatedPrevVersionSectionId": 67238
+      },
+      {
+        "id": 67760,
+        "index": 7550,
+        "title": "Описание и поиск его языка",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67239,
+        "updatedPrevVersionSectionId": 67239
+      },
+      {
+        "id": 67761,
+        "index": 7600,
+        "title": "Прагматический смысл описания",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67240,
+        "updatedPrevVersionSectionId": 67240
+      },
+      {
+        "id": 67762,
+        "index": 7650,
+        "title": "Условия истинности и эпистемический статус высказывания",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67241,
+        "updatedPrevVersionSectionId": 67241
+      },
+      {
+        "id": 67763,
+        "index": 7700,
+        "title": "Процесс толкования",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67242,
+        "updatedPrevVersionSectionId": 67242
+      },
+      {
+        "id": 67764,
+        "index": 7750,
+        "title": "Задание 8.5.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67243,
+        "updatedPrevVersionSectionId": 67243
+      },
+      {
+        "id": 67765,
+        "index": 7800,
+        "title": "Факультативное задание 8.6",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67244,
+        "updatedPrevVersionSectionId": 67244
+      },
+      {
+        "id": 67766,
+        "index": 7850,
+        "title": "9. Удержать внимание на сменах состояний объектов",
+        "type": "HEADER",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 67767,
+        "index": 7900,
+        "title": "Динамическое рассмотрение объектов",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67246,
+        "updatedPrevVersionSectionId": 67246
+      },
+      {
+        "id": 67768,
+        "index": 7950,
+        "title": "Смены состояний объектов",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67247,
+        "updatedPrevVersionSectionId": 67247
+      },
+      {
+        "id": 67769,
+        "index": 8000,
+        "title": "Упражнение 9.1",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67248,
+        "updatedPrevVersionSectionId": 67248
+      },
+      {
+        "id": 67770,
+        "index": 8050,
+        "title": "Чеклисты как способ удержания внимания",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67249,
+        "updatedPrevVersionSectionId": 67249
+      },
+      {
+        "id": 67771,
+        "index": 8100,
+        "title": "Задание 9.2",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67250,
+        "updatedPrevVersionSectionId": 67250
+      },
+      {
+        "id": 67772,
+        "index": 8150,
+        "title": "Измерение изменений",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67251,
+        "updatedPrevVersionSectionId": 67251
+      },
+      {
+        "id": 67773,
+        "index": 8200,
+        "title": "Шкалы",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67252,
+        "updatedPrevVersionSectionId": 67252
+      },
+      {
+        "id": 67774,
+        "index": 8250,
+        "title": "Вещь и граф создателей вещи",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67253,
+        "updatedPrevVersionSectionId": 67253
+      },
+      {
+        "id": 67775,
+        "index": 8300,
+        "title": "Задание 9.3",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67254,
+        "updatedPrevVersionSectionId": 67254
+      },
+      {
+        "id": 67776,
+        "index": 8350,
+        "title": "Онтология путешествий объектов",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67255,
+        "updatedPrevVersionSectionId": 67255
+      },
+      {
+        "id": 67777,
+        "index": 8400,
+        "title": "Задание 9.4",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67256,
+        "updatedPrevVersionSectionId": 67256
+      },
+      {
+        "id": 67778,
+        "index": 8450,
+        "title": "Переключение внимания и напоминания",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67257,
+        "updatedPrevVersionSectionId": 67257
+      },
+      {
+        "id": 67779,
+        "index": 8500,
+        "title": "Проблемы и практики удержания внимания",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67258,
+        "updatedPrevVersionSectionId": 67258
+      },
+      {
+        "id": 67780,
+        "index": 8550,
+        "title": "Перестройка расписания",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67259,
+        "updatedPrevVersionSectionId": 67259
+      },
+      {
+        "id": 67781,
+        "index": 8600,
+        "title": "Задание 9.5",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67260,
+        "updatedPrevVersionSectionId": 67260
+      },
+      {
+        "id": 67782,
+        "index": 8650,
+        "title": "10. Построение онтологического описания",
+        "type": "HEADER",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 67783,
+        "index": 8700,
+        "title": "Ситуация моделирования",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67262,
+        "updatedPrevVersionSectionId": 67262
+      },
+      {
+        "id": 67784,
+        "index": 8750,
+        "title": "Уровни абстракции",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67263,
+        "updatedPrevVersionSectionId": 67263
+      },
+      {
+        "id": 67785,
+        "index": 8800,
+        "title": "Задание 10.1",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67264,
+        "updatedPrevVersionSectionId": 67264
+      },
+      {
+        "id": 67786,
+        "index": 8850,
+        "title": "Виды описаний",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67265,
+        "updatedPrevVersionSectionId": 67265
+      },
+      {
+        "id": 67787,
+        "index": 8900,
+        "title": "Упражнение 10.2",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67266,
+        "updatedPrevVersionSectionId": 67266
+      },
+      {
+        "id": 67788,
+        "index": 8950,
+        "title": "Предметные роли и язык описания",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67267,
+        "updatedPrevVersionSectionId": 67267
+      },
+      {
+        "id": 67789,
+        "index": 9000,
+        "title": "Упражнение 10.3",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67268,
+        "updatedPrevVersionSectionId": 67268
+      },
+      {
+        "id": 67790,
+        "index": 9050,
+        "title": "Задание 10.4 (факультативное)",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67269,
+        "updatedPrevVersionSectionId": 67269
+      },
+      {
+        "id": 67791,
+        "index": 9100,
+        "title": "Формат описания и моделеры",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67270,
+        "updatedPrevVersionSectionId": 67270
+      },
+      {
+        "id": 67792,
+        "index": 9150,
+        "title": "Модальность описания",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67271,
+        "updatedPrevVersionSectionId": 67271
+      },
+      {
+        "id": 67793,
+        "index": 9200,
+        "title": "Задание 10.5",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67272,
+        "updatedPrevVersionSectionId": 67272
+      },
+      {
+        "id": 67794,
+        "index": 9250,
+        "title": "Уровни детализации",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67273,
+        "updatedPrevVersionSectionId": 67273
+      },
+      {
+        "id": 67795,
+        "index": 9300,
+        "title": "Упражнение 10.6",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67274,
+        "updatedPrevVersionSectionId": 67274
+      },
+      {
+        "id": 67796,
+        "index": 9350,
+        "title": "Классификаторы",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67275,
+        "updatedPrevVersionSectionId": 67275
+      },
+      {
+        "id": 67797,
+        "index": 9400,
+        "title": "Упражнение 10.7",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67276,
+        "updatedPrevVersionSectionId": 67276
+      },
+      {
+        "id": 67798,
+        "index": 9450,
+        "title": "Описатели и отношения объектов",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67277,
+        "updatedPrevVersionSectionId": 67277
+      },
+      {
+        "id": 67799,
+        "index": 9500,
+        "title": "Упражнение 10.8",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67278,
+        "updatedPrevVersionSectionId": 67278
+      },
+      {
+        "id": 67800,
+        "index": 9550,
+        "title": "Составление описания или шаблона описания",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67279,
+        "updatedPrevVersionSectionId": 67279
+      },
+      {
+        "id": 67801,
+        "index": 9600,
+        "title": "Задание 10.9",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67280,
+        "updatedPrevVersionSectionId": 67280
+      },
+      {
+        "id": 67802,
+        "index": 9650,
+        "title": "11. Введение в исследования",
+        "type": "HEADER",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 67803,
+        "index": 9700,
+        "title": "Практика исследований",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67282,
+        "updatedPrevVersionSectionId": 67282
+      },
+      {
+        "id": 67804,
+        "index": 9750,
+        "title": "Зачем создаются объяснения",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67283,
+        "updatedPrevVersionSectionId": 67283
+      },
+      {
+        "id": 67805,
+        "index": 9800,
+        "title": "Как анализируют объяснения",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67284,
+        "updatedPrevVersionSectionId": 67284
+      },
+      {
+        "id": 67806,
+        "index": 9850,
+        "title": "Задание 11.1.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67285,
+        "updatedPrevVersionSectionId": 67285
+      },
+      {
+        "id": 67807,
+        "index": 9900,
+        "title": "Эпистемическое состояние агентов",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67286,
+        "updatedPrevVersionSectionId": 67286
+      },
+      {
+        "id": 67808,
+        "index": 9950,
+        "title": "Упражнение 11.2.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67287,
+        "updatedPrevVersionSectionId": 67287
+      },
+      {
+        "id": 67809,
+        "index": 10000,
+        "title": "Утверждения и убеждения",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67288,
+        "updatedPrevVersionSectionId": 67288
+      },
+      {
+        "id": 67810,
+        "index": 10050,
+        "title": "Упражнение 11.3.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67289,
+        "updatedPrevVersionSectionId": 67289
+      },
+      {
+        "id": 67811,
+        "index": 10100,
+        "title": "Предсказания и допущения",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67290,
+        "updatedPrevVersionSectionId": 67290
+      },
+      {
+        "id": 67812,
+        "index": 10150,
+        "title": "Упражнение 11.4.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67291,
+        "updatedPrevVersionSectionId": 67291
+      },
+      {
+        "id": 67813,
+        "index": 10200,
+        "title": "Создание объяснений",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67292,
+        "updatedPrevVersionSectionId": 67292
+      },
+      {
+        "id": 67814,
+        "index": 10250,
+        "title": "Исследования самого себя",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67293,
+        "updatedPrevVersionSectionId": 67293
+      },
+      {
+        "id": 67815,
+        "index": 10300,
+        "title": "Как оценить объяснение",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67294,
+        "updatedPrevVersionSectionId": 67294
+      },
+      {
+        "id": 67816,
+        "index": 10350,
+        "title": "Задание 11.5.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67295,
+        "updatedPrevVersionSectionId": 67295
+      },
+      {
+        "id": 67817,
+        "index": 10400,
+        "title": "12. Причинность и контрфактичность",
+        "type": "HEADER",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 67818,
+        "index": 10450,
+        "title": "События и вероятности",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67297,
+        "updatedPrevVersionSectionId": 67297
+      },
+      {
+        "id": 67819,
+        "index": 10500,
+        "title": "Лестница причинности",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67298,
+        "updatedPrevVersionSectionId": 67298
+      },
+      {
+        "id": 67820,
+        "index": 10550,
+        "title": "Задание 12.1.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67299,
+        "updatedPrevVersionSectionId": 67299
+      },
+      {
+        "id": 67821,
+        "index": 10600,
+        "title": "Типы причин",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67300,
+        "updatedPrevVersionSectionId": 67300
+      },
+      {
+        "id": 67822,
+        "index": 10650,
+        "title": "Задание 12.2.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67301,
+        "updatedPrevVersionSectionId": 67301
+      },
+      {
+        "id": 67823,
+        "index": 10700,
+        "title": "Основные элементы графа причинности",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67302,
+        "updatedPrevVersionSectionId": 67302
+      },
+      {
+        "id": 67824,
+        "index": 10750,
+        "title": "Как работать с графами причинности",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67303,
+        "updatedPrevVersionSectionId": 67303
+      },
+      {
+        "id": 67825,
+        "index": 10800,
+        "title": "Дребезг причинно-следственных связей:",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67304,
+        "updatedPrevVersionSectionId": 67304
+      },
+      {
+        "id": 67826,
+        "index": 10850,
+        "title": "Задание 12.3.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67305,
+        "updatedPrevVersionSectionId": 67305
+      },
+      {
+        "id": 67827,
+        "index": 10900,
+        "title": "13. Проводить предварительную подготовку",
+        "type": "HEADER",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 67828,
+        "index": 10950,
+        "title": "Зачем нужна предварительная подготовка",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67307,
+        "updatedPrevVersionSectionId": 67307
+      },
+      {
+        "id": 67829,
+        "index": 11000,
+        "title": "Что такое предварительная подготовка",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67308,
+        "updatedPrevVersionSectionId": 67308
+      },
+      {
+        "id": 67830,
+        "index": 11050,
+        "title": "Времена в TameFlow",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67309,
+        "updatedPrevVersionSectionId": 67309
+      },
+      {
+        "id": 67831,
+        "index": 11100,
+        "title": "Варианты предварительной подготовки",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67310,
+        "updatedPrevVersionSectionId": 67310
+      },
+      {
+        "id": 67832,
+        "index": 11150,
+        "title": "Память",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67311,
+        "updatedPrevVersionSectionId": 67311
+      },
+      {
+        "id": 67833,
+        "index": 11200,
+        "title": "Задание 13.1",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67312,
+        "updatedPrevVersionSectionId": 67312
+      },
+      {
+        "id": 67834,
+        "index": 11250,
+        "title": "14. Удержать внимание на работе по моделям",
+        "type": "HEADER",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 67835,
+        "index": 11300,
+        "title": "Подготовка к составлению модели: ситуация моделирования",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67314,
+        "updatedPrevVersionSectionId": 67314
+      },
+      {
+        "id": 67836,
+        "index": 11350,
+        "title": "Предметные роли для ситуационных ролей",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67315,
+        "updatedPrevVersionSectionId": 67315
+      },
+      {
+        "id": 67837,
+        "index": 11400,
+        "title": "Упражнение 14.1",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67316,
+        "updatedPrevVersionSectionId": 67316
+      },
+      {
+        "id": 67838,
+        "index": 11450,
+        "title": "Неявные предположения при моделировании",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67317,
+        "updatedPrevVersionSectionId": 67317
+      },
+      {
+        "id": 67839,
+        "index": 11500,
+        "title": "Основные объекты описания и уровни организации",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67318,
+        "updatedPrevVersionSectionId": 67318
+      },
+      {
+        "id": 67840,
+        "index": 11550,
+        "title": "Уровни моделирования и принципиальная модель предприятия",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67319,
+        "updatedPrevVersionSectionId": 67319
+      },
+      {
+        "id": 67841,
+        "index": 11600,
+        "title": "Базовая онтология работ",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67320,
+        "updatedPrevVersionSectionId": 67320
+      },
+      {
+        "id": 67842,
+        "index": 11650,
+        "title": "Принципы физики предприятия и закон Литтла",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67321,
+        "updatedPrevVersionSectionId": 67321
+      },
+      {
+        "id": 67843,
+        "index": 11700,
+        "title": "Использование буферов для компенсации изменчивости",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67322,
+        "updatedPrevVersionSectionId": 67322
+      },
+      {
+        "id": 67844,
+        "index": 11750,
+        "title": "Собираем всё вместе",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67323,
+        "updatedPrevVersionSectionId": 67323
+      },
+      {
+        "id": 67845,
+        "index": 11800,
+        "title": "Задание 14.2",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67324,
+        "updatedPrevVersionSectionId": 67324
+      },
+      {
+        "id": 67846,
+        "index": 11850,
+        "title": "15. Деконцентрация для поиска важного",
+        "type": "HEADER",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 67847,
+        "index": 11900,
+        "title": "Зачем нужна деконцентрация",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67326,
+        "updatedPrevVersionSectionId": 67326
+      },
+      {
+        "id": 67848,
+        "index": 11950,
+        "title": "Способы поиска важного",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67327,
+        "updatedPrevVersionSectionId": 67327
+      },
+      {
+        "id": 67849,
+        "index": 12000,
+        "title": "Поиск источников информации",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67328,
+        "updatedPrevVersionSectionId": 67328
+      },
+      {
+        "id": 67850,
+        "index": 12050,
+        "title": "Понятийное наведение внимания: контроль типов",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67329,
+        "updatedPrevVersionSectionId": 67329
+      },
+      {
+        "id": 67851,
+        "index": 12100,
+        "title": "Ошибки при постановке понятийного внимания",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67330,
+        "updatedPrevVersionSectionId": 67330
+      },
+      {
+        "id": 67852,
+        "index": 12150,
+        "title": "Эволюция моделей",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67331,
+        "updatedPrevVersionSectionId": 67331
+      },
+      {
+        "id": 67853,
+        "index": 12200,
+        "title": "Задание 15.1",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67332,
+        "updatedPrevVersionSectionId": 67332
+      },
+      {
+        "id": 67854,
+        "index": 12250,
+        "title": "Операционная мантра",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67333,
+        "updatedPrevVersionSectionId": 67333
+      },
+      {
+        "id": 67855,
+        "index": 12300,
+        "title": "16. Коммуникация и принятие решений",
+        "type": "HEADER",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 67856,
+        "index": 12350,
+        "title": "Прагматическая коммуникация",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67335,
+        "updatedPrevVersionSectionId": 67335
+      },
+      {
+        "id": 67857,
+        "index": 12400,
+        "title": "Цели коммуникации и ролевые предпочтения участников",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67336,
+        "updatedPrevVersionSectionId": 67336
+      },
+      {
+        "id": 67858,
+        "index": 12450,
+        "title": "Упражнение 16.1.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67337,
+        "updatedPrevVersionSectionId": 67337
+      },
+      {
+        "id": 67859,
+        "index": 12500,
+        "title": "Постановка в роль",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67338,
+        "updatedPrevVersionSectionId": 67338
+      },
+      {
+        "id": 67860,
+        "index": 12550,
+        "title": "Упражнение 16.2.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67339,
+        "updatedPrevVersionSectionId": 67339
+      },
+      {
+        "id": 67861,
+        "index": 12600,
+        "title": "Убедительная речь",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67340,
+        "updatedPrevVersionSectionId": 67340
+      },
+      {
+        "id": 67862,
+        "index": 12650,
+        "title": "Задание 16.3",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67341,
+        "updatedPrevVersionSectionId": 67341
+      },
+      {
+        "id": 67863,
+        "index": 12700,
+        "title": "Рамки целеполагания",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67342,
+        "updatedPrevVersionSectionId": 67342
+      },
+      {
+        "id": 67864,
+        "index": 12750,
+        "title": "Упражнение 16.4.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67343,
+        "updatedPrevVersionSectionId": 67343
+      },
+      {
+        "id": 67865,
+        "index": 12800,
+        "title": "Практическое применение моделирования",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67344,
+        "updatedPrevVersionSectionId": 67344
+      },
+      {
+        "id": 67866,
+        "index": 12850,
+        "title": "Задание 16.5",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 67345,
+        "updatedPrevVersionSectionId": 67345
+      },
+      {
+        "id": 67867,
+        "index": 12900,
+        "title": "Что дальше?",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 67346,
+        "updatedPrevVersionSectionId": 67346
+      }
+    ],
+    "course": {
+      "id": 96,
+      "path": "ontologics-sobr",
+      "productCode": "ontologics-sobr",
+      "name": "1. Рациональная работа",
+      "authors": "П. Медведева, В. Агроскин, А. Лубенченко",
+      "description": "",
+      "activeVersionId": 550,
+      "activeVersion": "2025-05-15T1900",
+      "activeVersionChangeLog": "Полностью обновлено \"Введение\": добавлена информация по организации сессий рабочего развития и прохождению стажировки. ",
+      "precondition": null,
+      "online": true,
+      "deprecated": false,
+      "hidden": false,
+      "roleRestriction": [],
+      "qlBegin": null,
+      "qlFinish": null,
+      "index": 160,
+      "testIndex": 160,
+      "discussion": null,
+      "test": false,
+      "unpublishedVersion": null,
+      "versions": null
+    },
+    "symbolCount": 1207335
+  }
