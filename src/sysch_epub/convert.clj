@@ -62,9 +62,11 @@
 
 (defn extract-latest-passing
   [passings course-slug]
-  (filter #(and (not (:archived %)) (= course-slug (:coursePath %))) passings))
+  (->> passings
+       (filter #(and (not (:archived %)) (= course-slug (:coursePath %))))
+       first))
 
-(defn jumbo [course-meta]
+(defn extract-course-sections [course-meta]
   (->> (last course-meta)
        course-sections-clj
        (filter #(= :text (:type %)))
@@ -77,19 +79,6 @@
   (spit (section-path target-section-folder section)
         (selmer/render-file "Section0001.xhtml" section)))
 
-(defn -main [& args]
-  (let [course-slug (first args)
-        passings (download-aisyst-json passings-url)
-        course-meta (download-course-metadata course-slug)
-        epub-dir (fs/path "target" course-slug)
-        target-section-folder (fs/path epub-dir "OEBPS" "Text")]
-    (fs/create-dirs "target")
-    (fs/copy-tree "resources/epub-template" epub-dir)
-
-    (print
-     (extract-latest-passing passings course-slug)
-     (jumbo course-meta))))
-
 (defn section-url
   [section]
   (selmer/render
@@ -97,33 +86,56 @@
    {:section-id (:id section)
     :passing-id @latest-passing}))
 
+(defn download-section [section]
+  (download-aisyst (section-url section)))
+
+(defn attach-article [section]
+  (assoc section :article (download-section section)))
+
+(defn -main [& args]
+  (let [course-slug (first args)
+        passings (download-aisyst-json passings-url)
+        course-meta (download-course-metadata course-slug)
+        epub-dir (fs/path "target" course-slug)
+        target-section-folder (fs/path epub-dir "OEBPS" "Text")]
+    (fs/create-dirs "target")
+    (fs/copy-tree "resources/epub-template" epub-dir {:replace-existing true})
+
+    (reset! latest-passing
+            (:id (extract-latest-passing passings course-slug)))
+    (print
+     (selmer/render "Latest passing id: {{passing-id}}\n" {:passing-id @latest-passing}))
+    (extract-course-sections course-meta)))
+
+
 (comment
   (def passings
-    (download-aisyst-json "https://aisystant.system-school.ru/api/courses/courses-passing"))
-  ;https://aisystant.system-school.ru/api/courses/courses-passing
+    (download-aisyst-json
+     "https://aisystant.system-school.ru/api/courses/courses-passing"))
+
   (def course-slug "ontologics-sobr")
-  (def course-meta
-    (json/read-str
-     (slurp "resources/system-school/ontologics-sobr-2025-05-15.json")))
 
   (def course-meta (download-course-metadata "ontologics-sobr"))
 
-  (filter #(= :text (:type %)) course-meta)
-
   (reset! latest-passing
           (-> (extract-latest-passing passings course-slug)
-              first
               :id))
 
-
   @latest-passing
-  (jumbo course-meta)
+
+  (first (extract-course-sections course-meta))
   (def latest-meta (last course-meta))
   (keys latest-meta)
   (:version latest-meta)
 
+  (attach-article {:id 67609, :index 0, :title "Введение"})
+
   {:id 67692, :title "Модели и знаки"}
 
+  (download-section {:id 67609, :index 0, :title "Введение"})
+
+
+  (section-url {:id 67609, :index 0, :title "Введение"})
   (format "%04d" 500)
 
   (download-aisyst
@@ -132,12 +144,7 @@
     67692
     39713))
 
-  (download-aisyst
-   (str
-    "https://aisystant.system-school.ru/api/courses/text/"
-    67692
-    "?course-passing="
-    39713))
+
   :rcf)
 
 ;https://aisystant.system-school.ru/api/courses/text/67669?course-passing=39713
