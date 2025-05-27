@@ -44,10 +44,12 @@
         cache-path (str "cache/" cache-file)]
     (if (fs/exists? cache-path)
       (slurp cache-path)
-      (:body
-       (http/get
-        url
-        {:headers (read-headers)})))))
+      (let [response (:body
+              (http/get
+               url
+               {:headers (read-headers)}))]
+        (spit cache-path response)
+        response))))
 
 (defn download-aisyst-json [url]
   (json/read-str
@@ -73,10 +75,10 @@
        (map #(select-keys % [:id :index :title]))))
 
 (defn section-path [target-section-folder section]
-  (fs/path target-section-folder (format "%04d" (:index section))))
+  (fs/path target-section-folder (format "%04d.xhtml" (:index section))))
 
 (defn render-section [target-section-folder section]
-  (spit (section-path target-section-folder section)
+  (spit (str (section-path target-section-folder section))
         (selmer/render-file "Section0001.xhtml" section)))
 
 (defn section-url
@@ -115,7 +117,7 @@
 
   (def course-slug "ontologics-sobr")
 
-  (def course-meta (download-course-metadata "ontologics-sobr"))
+  (def course-meta (download-course-metadata course-slug))
 
   (reset! latest-passing
           (-> (extract-latest-passing passings course-slug)
@@ -123,11 +125,18 @@
 
   @latest-passing
 
-  (first (extract-course-sections course-meta))
+  (def course-sections (extract-course-sections course-meta))
+
+  (def enriched-course-sections
+    (map attach-article course-sections))
+
+  (run! (partial render-section (str "target/" course-slug))
+        enriched-course-sections)
+
+  (first course-sections)
   (def latest-meta (last course-meta))
   (keys latest-meta)
   (:version latest-meta)
-
   (attach-article {:id 67609, :index 0, :title "Введение"})
 
   {:id 67692, :title "Модели и знаки"}
