@@ -7,7 +7,32 @@
    [lambdaisland.uri :refer [uri]]
    [selmer.parser :as selmer]
    [clojure.string :as str])
+  (:import
+   [org.jsoup Jsoup]
+   [org.jsoup.nodes Attribute Document Element])
   (:gen-class))
+
+(defn element->m
+  [^Element element]
+  {:id (.id element)
+   :class-names (.classNames element)
+   :tag-name (.normalName element)
+   :attrs (->> (.attributes element)
+               .iterator
+               iterator-seq
+               (map (juxt (memfn ^Attribute getKey) (memfn ^Attribute getValue)))
+               (into {}))
+   :own-text (.ownText element)
+   :text (.text element)
+   :whole-text (.wholeText element)
+   :inner-html (.html element)
+   :outer-html (.outerHtml element)})
+
+(defn jsoup-select-doc
+  [jsoup-doc css-query]
+  (let [elements (-> jsoup-doc
+                     (.select ^String css-query))]
+    (map element->m elements)))
 
 (def page-type-map
   {"HEADER" :header
@@ -45,11 +70,23 @@
     (if (fs/exists? cache-path)
       (slurp cache-path)
       (let [response (:body
-              (http/get
-               url
-               {:headers (read-headers)}))]
+                      (http/get
+                       url
+                       {:headers (read-headers)}))]
         (spit cache-path response)
         response))))
+
+
+
+(defn download-image-aisyst
+  [epub-dir url]
+  (let [cache-file (url-to-cache-file url)
+        cache-path (str "cache/" cache-file)]
+    (when-not (fs/exists? cache-path)
+      (io/copy
+       (:body (http/get url {:as :stream :headers (read-headers)}))
+       (fs/file cache-path)))
+    (fs/copy cache-path epub-dir {:replace-existing true})))
 
 (defn download-aisyst-json [url]
   (json/read-str
@@ -72,10 +109,11 @@
   (->> (last course-meta)
        course-sections-clj
        (filter #(= :text (:type %)))
-       (map #(select-keys % [:id :index :title]))))
+       (map #(select-keys % [:id :index :title]))
+       (map #(assoc % :file-name (format "%05d.xhtml" (:index %))))))
 
 (defn section-path [target-section-folder section]
-  (fs/path target-section-folder (format "%04d.xhtml" (:index section))))
+  (fs/path target-section-folder (format "%05d.xhtml" (:index section))))
 
 (defn render-section [target-section-folder section]
   (spit (str (section-path target-section-folder section))
@@ -93,6 +131,14 @@
 
 (defn attach-article [section]
   (assoc section :article (download-section section)))
+
+(defn extract-image-urls
+  [section]
+  (as-> (:article section) v
+    (Jsoup/parse v)
+    (jsoup-select-doc v "img")
+    (map #(get-in % [:attrs "src"]) v)
+    (map #(str "https://aisystant.system-school.ru" %) v)))
 
 (defn -main [& args]
   (let [course-slug (first args)
@@ -133,7 +179,19 @@
   (run! (partial render-section (str "target/" course-slug))
         enriched-course-sections)
 
-  (first course-sections)
+  (first enriched-course-sections)
+
+  (extract-image-urls
+   (nth enriched-course-sections 5))
+
+  (mapcat extract-image-urls enriched-course-sections)
+
+  (download-image-aisyst
+   (str "target/" course-slug)
+   "https://aisystant.system-school.ru/text/ontologics-sobr/2025-05-15T1900/600/0.png")
+
+  (spit "target/content-book.opf"
+        (selmer/render-file "content-book.opf" {:sections enriched-course-sections}))
   (def latest-meta (last course-meta))
   (keys latest-meta)
   (:version latest-meta)
