@@ -39,6 +39,11 @@
    "TEXT" :text
    "TEST" :test})
 
+(def image-media-map
+  {"jpg"  "image/jpeg"
+   "jpeg"  "image/jpeg"
+   "png" "image/png"})
+
 (def latest-passing (atom 0))
 
 (defn remap-page-type [page]
@@ -86,7 +91,10 @@
       (io/copy
        (:body (http/get url {:as :stream :headers (read-headers)}))
        (fs/file cache-path)))
-    (fs/copy cache-path epub-dir {:replace-existing true})))
+    (fs/copy cache-path epub-dir {:replace-existing true})
+    {:id (str "img-" (fs/strip-ext cache-file))
+     :file-name cache-file
+     :media-type (get image-media-map (fs/extension cache-file))}))
 
 (defn download-aisyst-json [url]
   (json/read-str
@@ -143,17 +151,35 @@
 (defn -main [& args]
   (let [course-slug (first args)
         passings (download-aisyst-json passings-url)
+        latest-passing-num (reset! latest-passing
+                                   (-> (extract-latest-passing passings course-slug)
+                                       :id))
         course-meta (download-course-metadata course-slug)
+        course-sections (extract-course-sections course-meta)
+        enriched-course-sections (map attach-article course-sections)
+        image-urls (mapcat extract-image-urls enriched-course-sections)
         epub-dir (fs/path "target" course-slug)
-        target-section-folder (fs/path epub-dir "OEBPS" "Text")]
+        target-path (fs/path epub-dir "OEBPS" "content.opf")
+        target-section-folder (fs/path epub-dir "OEBPS" "Text")
+        images (map (partial download-image-aisyst (fs/path epub-dir "OEBPS" "Images")) image-urls)]
     (fs/create-dirs "target")
     (fs/copy-tree "resources/epub-template" epub-dir {:replace-existing true})
 
-    (reset! latest-passing
-            (:id (extract-latest-passing passings course-slug)))
+
+    (spit (str target-path)
+          (selmer/render-file "content-book.opf"
+                              {:title course-slug
+                               :sections enriched-course-sections
+                               :images images
+                               :uuid (java.util.UUID/randomUUID)
+                               :now (.format java.time.format.DateTimeFormatter/ISO_INSTANT (java.time.Instant/now))}))
+
+    (run! (partial render-section (fs/path epub-dir "OEBPS" "Text")) enriched-course-sections)
+    (fs/zip (str epub-dir ".epub")
+            (str epub-dir)
+            {:root (str epub-dir)})
     (print
-     (selmer/render "Latest passing id: {{passing-id}}\n" {:passing-id @latest-passing}))
-    (extract-course-sections course-meta)))
+     (selmer/render "Latest passing id: {{passing-id}}\n" {:passing-id @latest-passing}))))
 
 
 (comment
@@ -198,6 +224,8 @@
   (attach-article {:id 67609, :index 0, :title "Введение"})
 
   {:id 67692, :title "Модели и знаки"}
+
+
 
   (download-section {:id 67609, :index 0, :title "Введение"})
 
