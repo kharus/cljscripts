@@ -6,11 +6,14 @@
    [clojure.java.io :as io]
    [lambdaisland.uri :refer [uri]]
    [selmer.parser :as selmer]
-   [clojure.string :as str])
+   [clojure.string :as str]
+   [clojure.spec.alpha :as s])
   (:import
    [org.jsoup Jsoup]
    [org.jsoup.nodes Attribute Document Element])
   (:gen-class))
+
+(s/def :section/index int?)
 
 (defn element->m
   [^Element element]
