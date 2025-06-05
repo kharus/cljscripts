@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en" lang="en">
+
+<head>
+	<title>{{title}}</title>
+</head>
+
+<body>
+	<nav epub:type="toc" id="toc">
+		<h2>THE CONTENTS</h2>
+		<ol id="tocList">
+			{% for toc-item in toc-items %}
+			{% if toc-item.type = :text %}
+			<li>
+				<a href="{{toc-item.file-name}}">
+					{{toc-item.title}}
+				</a>
+			</li>
+			{% else %}
+			<li>
+				<span>{{toc-item.title}}</span>
+				<ol>
+					{% for section in toc-item.sections %}
+					<li>
+						<a href="{{section.file-name}}">
+							{{section.title}}
+						</a>
+					</li>
+					{% endfor %}
+				</ol>
+			</li>
+			{% endif %}
+			{% endfor %}
+
+
+		</ol>
+	</nav>
+</body>
+
+</html>
