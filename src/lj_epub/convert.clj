@@ -75,9 +75,10 @@
 
 (defn download-image
   [epub-dir url]
-  (io/copy
-   (:body (http/get url {:as :stream}))
-   (fs/file (fs/path epub-dir (fs/file-name url)))))
+  (let [client (http/client (assoc-in http/default-client-opts [:ssl-context :insecure] true))]
+    (io/copy
+     (:body (http/get url {:as :stream :client client}))
+     (fs/file (fs/path epub-dir (fs/file-name url))))))
 
 (defn embed-image-urls
   "Change path of the images to relative URL inside epub"
@@ -107,6 +108,7 @@
     (fs/copy-tree "resources/epub-template" epub-dir)
     (run! (partial download-image (fs/path epub-dir "OEBPS" "Images"))
           (extract-image-urls art-jsoup))
+
     (spit (str target-path)
           (selmer/render-file "content.opf"
                               {:title title
@@ -121,19 +123,33 @@
             {:root (str epub-dir)})))
 
 (comment
-  (def sourse-html (slurp "1759764.html"))
+  (def sourse-html (slurp "1767223.html"))
   (def jsoup-doc (Jsoup/parse sourse-html))
   (def title (extract-title-jsoup-doc jsoup-doc))
   (def article (extract-article-jsoup-doc jsoup-doc))
 
   (def art-jsoup (Jsoup/parse article))
 
+
+  (extract-image-urls art-jsoup)
   (def image-url "http dfa https://ic.pics.livejournal.com/ailev/696279/285800/285800_600.png")
   (str/replace image-url
                #"http[^ ]*ic.pics.livejournal.com/[^ ]+/([^\"']+)"
                "../Images/$1")
 
+  (download-image "." (first (extract-image-urls art-jsoup)))
+
   (fs/file-name image-url)
+
+
+
+  (http/get "https://clojure.org" {:client client})
+
+  (first (extract-image-urls art-jsoup))
+
+  (io/copy
+   (:body (http/get (first (extract-image-urls art-jsoup)) {:as :stream :client client}))
+   (fs/file (fs/path "." (fs/file-name (first (extract-image-urls art-jsoup))))))
 
   (->>
    (jsoup-select-doc art-jsoup "img")

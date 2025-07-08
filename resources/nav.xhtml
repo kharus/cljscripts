@@ -12,21 +12,13 @@
 		<ol id="tocList">
 			{% for toc-item in toc-items %}
 			{% if toc-item.type = :text %}
-			<li>
-				<a href="{{toc-item.file-name}}">
-					{{toc-item.title}}
-				</a>
-			</li>
+			<li><a href="{{toc-item.file-name}}">{{toc-item.title}}</a></li>
 			{% else %}
 			<li>
-				<span>{{toc-item.title}}</span>
+				<a href="../../">{{toc-item.title}}</a>
 				<ol>
 					{% for section in toc-item.sections %}
-					<li>
-						<a href="{{section.file-name}}">
-							{{section.title}}
-						</a>
-					</li>
+					<li><a href="{{section.file-name}}">{{section.title}}</a></li>
 					{% endfor %}
 				</ol>
 			</li>
