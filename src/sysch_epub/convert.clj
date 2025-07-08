@@ -52,8 +52,8 @@
 (defn remap-page-type [page]
   (assoc page :type (page-type-map (:type page))))
 
-(defn course-sections-clj [course-meta]
-  (map remap-page-type (:sections course-meta)))
+(defn course-sections-clj [raw-sections]
+  (map remap-page-type raw-sections))
 
 (def course-root
   "https://aisystant.system-school.ru/api/courses/course-versions?course-path=")
@@ -117,10 +117,10 @@
        first))
 
 (defn extract-course-sections [course-meta]
-  (->> (last course-meta)
+  (->> course-meta
+       :sections
        course-sections-clj
-       (filter #(= :text (:type %)))
-       (map #(select-keys % [:id :index :title]))
+       (map #(select-keys % [:id :index :title :type]))
        (map #(assoc % :file-name (format "%05d.xhtml" (:index %))))))
 
 (defn section-path [target-section-folder section]
@@ -158,8 +158,9 @@
                                    (-> (extract-latest-passing passings course-slug)
                                        :id))
         course-meta (download-course-metadata course-slug)
-        course-sections (extract-course-sections course-meta)
-        enriched-course-sections (map attach-article course-sections)
+        course-sections (extract-course-sections (last course-meta))
+        text-only-course-sections (filter #(= :text (:type %)) course-sections)
+        enriched-course-sections (map attach-article text-only-course-sections)
         image-urls (mapcat extract-image-urls enriched-course-sections)
         epub-dir (fs/path "target" course-slug)
         target-path (fs/path epub-dir "OEBPS" "content.opf")
@@ -205,44 +206,59 @@
   (def enriched-course-sections
     (map attach-article course-sections))
 
-  (run! (partial render-section (str "target/" course-slug))
-        enriched-course-sections)
+  (def latest-course-meta
+    (last course-meta))
 
-  (first enriched-course-sections)
+  (def all-sections (extract-course-sections latest-course-meta))
 
-  (extract-image-urls
-   (nth enriched-course-sections 5))
+  (get-in latest-course-meta [:course :name])
 
-  (mapcat extract-image-urls enriched-course-sections)
+  (def first-split
+    (split-with #(not= :header (:type %)) all-sections))
 
-  (download-image-aisyst
-   (str "target/" course-slug)
-   "https://aisystant.system-school.ru/text/ontologics-sobr/2025-05-15T1900/600/0.png")
+  (def chapters-sections (second first-split))
 
-  (spit "target/content-book.opf"
-        (selmer/render-file "content-book.opf" {:sections enriched-course-sections}))
-  (def latest-meta (last course-meta))
-  (keys latest-meta)
-  (:version latest-meta)
-  (attach-article {:id 67609, :index 0, :title "Введение"})
+  (first chapters-sections)
 
-  {:id 67692, :title "Модели и знаки"}
+  (split-with #(not= :header (:type %)) (rest chapters-sections))
+
+  (defn aggregate-chapters [sections]
+    (loop [ch-sections sections acc []]
+      (if (empty? ch-sections)
+        acc
+        (let [chapter (first ch-sections)
+              [h t] (split-with #(not= :header (:type %)) (rest ch-sections))
+              text-sections (filter #(= :text (:type %)) h)]
+          (recur
+           t
+           (conj acc (assoc chapter :sections text-sections)))))))
+
+  (loop [ch-sections chapters-sections acc []]
+    (if (empty? ch-sections)
+      acc
+      (let [chapter (first ch-sections)
+            [h t] (split-with #(not= :header (:type %)) (rest ch-sections))
+            text-sections (filter #(= :text (:type %)) h)]
+        (recur
+         t
+         (conj acc (assoc chapter :sections text-sections))))))
+
+  (aggregate-chapters (rest chapters-sections))
+
+  (defn toc-sections [sections]
+    (let [[h t] (split-with #(not= :header (:type %)) sections)]
+      (concat h (aggregate-chapters t))))
+
+  (def toc-items (toc-sections all-sections))
+  (spit "target/nav.xhtml"
+        (selmer/render-file
+         "nav.xhtml"
+         {:title (get-in latest-course-meta [:course :name])
+          :toc-items toc-items
+          :uuid (java.util.UUID/randomUUID)}))
 
 
-
-  (download-section {:id 67609, :index 0, :title "Введение"})
-
-
-  (section-url {:id 67609, :index 0, :title "Введение"})
-  (format "%04d" 500)
-
-  (download-aisyst
-   (format
-    "https://aisystant.system-school.ru/api/courses/text/%s?course-passing=%s"
-    67692
-    39713))
-
-
+  (nil? ())
   :rcf)
 
 ;https://aisystant.system-school.ru/api/courses/text/67669?course-passing=39713
