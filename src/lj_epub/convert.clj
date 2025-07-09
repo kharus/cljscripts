@@ -69,9 +69,7 @@
   [^Document jsoup-doc]
   (let [title (extract-title-jsoup-doc jsoup-doc)
         pub-date (extract-date-jsoup-doc jsoup-doc)]
-    (if (= "lytdybr" title)
-      (str title "-" pub-date)
-      title)))
+    (str pub-date "-" title)))
 
 (defn download-image
   [epub-dir url]
@@ -141,7 +139,8 @@
 
   (fs/file-name image-url)
 
-
+  (def client
+    (http/client (assoc-in http/default-client-opts [:ssl-context :insecure] true)))
 
   (http/get "https://clojure.org" {:client client})
 
