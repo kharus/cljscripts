@@ -151,6 +151,21 @@
     (map #(get-in % [:attrs "src"]) v)
     (map #(str "https://aisystant.system-school.ru" %) v)))
 
+(defn aggregate-chapters [sections]
+  (loop [ch-sections sections acc []]
+    (if (empty? ch-sections)
+      acc
+      (let [chapter (first ch-sections)
+            [h t] (split-with #(not= :header (:type %)) (rest ch-sections))
+            text-sections (filter #(= :text (:type %)) h)]
+        (recur
+         t
+         (conj acc (assoc chapter :sections text-sections)))))))
+
+(defn toc-sections [sections]
+  (let [[h t] (split-with #(not= :header (:type %)) sections)]
+    (concat h (aggregate-chapters t))))
+
 (defn -main [& args]
   (let [course-slug (first args)
         passings (download-aisyst-json passings-url)
@@ -165,7 +180,10 @@
         epub-dir (fs/path "target" course-slug)
         target-path (fs/path epub-dir "OEBPS" "content.opf")
         target-section-folder (fs/path epub-dir "OEBPS" "Text")
-        images (map (partial download-image-aisyst (fs/path epub-dir "OEBPS" "Images")) image-urls)]
+        images (map (partial download-image-aisyst (fs/path epub-dir "OEBPS" "Images")) image-urls)
+        latest-course-meta (last course-meta)
+        all-sections (extract-course-sections latest-course-meta)
+        toc-items (toc-sections all-sections)]
     (fs/create-dirs "target")
     (fs/copy-tree "resources/epub-template" epub-dir {:replace-existing true})
 
@@ -178,7 +196,16 @@
                                :uuid (java.util.UUID/randomUUID)
                                :now (.format java.time.format.DateTimeFormatter/ISO_INSTANT (java.time.Instant/now))}))
 
-    (run! (partial render-section (fs/path epub-dir "OEBPS" "Text")) enriched-course-sections)
+    (fs/delete-if-exists (fs/path target-section-folder "nav.xhtml"))
+
+    (spit (str (fs/path target-section-folder "nav.xhtml"))
+          (selmer/render-file
+           "nav.xhtml"
+           {:title (get-in latest-course-meta [:course :name])
+            :toc-items toc-items
+            :uuid (java.util.UUID/randomUUID)}))
+
+    (run! (partial render-section target-section-folder) enriched-course-sections)
     (fs/zip (str epub-dir ".epub")
             (str epub-dir)
             {:root (str epub-dir)})
@@ -205,58 +232,6 @@
 
   (def enriched-course-sections
     (map attach-article course-sections))
-
-  (def latest-course-meta
-    (last course-meta))
-
-  (def all-sections (extract-course-sections latest-course-meta))
-
-  (get-in latest-course-meta [:course :name])
-
-  (def first-split
-    (split-with #(not= :header (:type %)) all-sections))
-
-  (def chapters-sections (second first-split))
-
-  (first chapters-sections)
-
-  (split-with #(not= :header (:type %)) (rest chapters-sections))
-
-  (defn aggregate-chapters [sections]
-    (loop [ch-sections sections acc []]
-      (if (empty? ch-sections)
-        acc
-        (let [chapter (first ch-sections)
-              [h t] (split-with #(not= :header (:type %)) (rest ch-sections))
-              text-sections (filter #(= :text (:type %)) h)]
-          (recur
-           t
-           (conj acc (assoc chapter :sections text-sections)))))))
-
-  (loop [ch-sections chapters-sections acc []]
-    (if (empty? ch-sections)
-      acc
-      (let [chapter (first ch-sections)
-            [h t] (split-with #(not= :header (:type %)) (rest ch-sections))
-            text-sections (filter #(= :text (:type %)) h)]
-        (recur
-         t
-         (conj acc (assoc chapter :sections text-sections))))))
-
-  (aggregate-chapters (rest chapters-sections))
-
-  (defn toc-sections [sections]
-    (let [[h t] (split-with #(not= :header (:type %)) sections)]
-      (concat h (aggregate-chapters t))))
-
-  (def toc-items (toc-sections all-sections))
-  (spit "target/nav.xhtml"
-        (selmer/render-file
-         "nav.xhtml"
-         {:title (get-in latest-course-meta [:course :name])
-          :toc-items toc-items
-          :uuid (java.util.UUID/randomUUID)}))
-
 
   (nil? ())
   :rcf)
