@@ -84,8 +84,6 @@
         (spit cache-path response)
         response))))
 
-
-
 (defn download-image-aisyst
   [epub-dir url]
   (let [cache-file (url-to-cache-file url)
@@ -140,8 +138,16 @@
 (defn download-section [section]
   (download-aisyst (section-url section)))
 
+(defn embed-image-urls
+  "Change path of the images to relative URL inside epub"
+  ;<img src="/text/ontologics-sobr/2025-06-19T2004/4150/7.jpeg" alt=""/><img alt="7" src="../Images/7.jpeg"/>
+  [article]
+  (str/replace article
+               #"<img src=\"[^\"]*/(\d+\.[^\"]+)\""
+               "<img src=\"../Images/$1\""))
+
 (defn attach-article [section]
-  (assoc section :article (download-section section)))
+  (assoc section :article (embed-image-urls (download-section section))))
 
 (defn extract-image-urls
   [section]
@@ -228,12 +234,33 @@
 
   @latest-passing
 
-  (def course-sections (extract-course-sections course-meta))
+
+  (def course-sections (extract-course-sections (last course-meta)))
+
+  (def text-only-course-sections (filter #(= :text (:type %)) course-sections))
+  (def enriched-course-sections (map attach-article text-only-course-sections))
+
+  (filter #(= (:index %) 4150) enriched-course-sections)
 
   (def enriched-course-sections
     (map attach-article course-sections))
 
+  (count enriched-course-sections)
+
   (nil? ())
+
+  (download-aisyst "https://aisystant.system-school.ru/api/courses/text/69632?course-passing=41433")
+
+  (def q *1)
+
+  ;<img src="[^"]*\/(\d+)\.jpeg" alt="">
+  
+  (str/replace "<img src=\"/text/ontologics-sobr/2025-06-19T2004/4150/7.jpeg\" alt=\"\">"
+               #"<img src=\"[^\"]*/(\d+\.[^\"]+)\""
+               "<img src=\"../Images/$1\"")
+  
+  (first *1)
+  (println (:article *1))
   :rcf)
 
 ;https://aisystant.system-school.ru/api/courses/text/67669?course-passing=39713
