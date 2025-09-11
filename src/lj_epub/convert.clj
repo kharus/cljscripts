@@ -55,7 +55,8 @@
   [^Document jsoup-doc]
   (-> (jsoup-select-doc jsoup-doc "meta[property=og:title]")
       first
-      (get-in [:attrs "content"])))
+      (get-in [:attrs "content"])
+      (str/replace "/" "⧸")))
 
 (defn extract-date-jsoup-doc
   [^Document jsoup-doc]
@@ -121,10 +122,22 @@
             {:root (str epub-dir)})))
 
 (comment
-  (def sourse-html (slurp "1767223.html"))
+  (def sourse-html (slurp "1769890.html"))
   (def jsoup-doc (Jsoup/parse sourse-html))
   (def title (extract-title-jsoup-doc jsoup-doc))
   (def article (extract-article-jsoup-doc jsoup-doc))
+
+  (-> jsoup-doc
+      (jsoup-select-doc "article.aentry-")
+      first
+      :outer-html
+      (str/replace #"<br>--" "<li>"))
+  
+  (-> jsoup-doc
+      (jsoup-select-doc "article"))
+  (count
+   (-> jsoup-doc
+       (.select "article")))
 
   (def art-jsoup (Jsoup/parse article))
 
