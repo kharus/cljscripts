@@ -1,60 +1,48 @@
-# lj-epub.convert
+# cljscripts
 
-FIXME: my new application.
+Three independent converters that turn web content into EPUB:
 
-## Installation
+- **lj_epub** — LiveJournal posts
+- **substack_epub** — Substack articles (handles datawrapper iframes)
+- **sysch_epub** — System School (aisystant.system-school.ru) courses
 
-Download from https://github.com/lj-epub/lj-epub.convert
+## Build & Test
 
-## Usage
+    clojure -T:build test   # run tests
+    clojure -T:build ci     # run tests + build uberjar
 
-FIXME: explanation
+## Running
 
-Run the project directly, via `:exec-fn`:
+### lj_epub
 
-    $ clojure -X:run-x
-    Hello, Clojure!
+    clojure -M:run-m <url>
 
-Run the project, overriding the name to be greeted:
+### substack_epub
 
-    $ clojure -X:run-x :name '"Someone"'
-    Hello, Someone!
+    clojure -M -m substack-epub.convert <url>
 
-Run the project directly, via `:main-opts` (`-m lj-epub.convert`):
+Example:
 
-    $ clojure -M:run-m
-    Hello, World!
+    clojure -M -m substack-epub.convert https://addyo.substack.com/p/software-factories-light-and-dark
 
-Run the project, overriding the name to be greeted:
+### sysch_epub
 
-    $ clojure -M:run-m Via-Main
-    Hello, Via-Main!
+    clojure -M -m sysch-epub.convert <course-slug>
 
-Run the project's tests (they'll fail until you edit them):
+`<course-slug>` is the path segment right after `/course/` in the course URL,
+e.g. for `.../lk/#/course/modeling-1-r2/2026-06-30T0620/79933` it's `modeling-1-r2`.
 
-    $ clojure -T:build test
+**Auth:** sysch_epub needs a `fetch.json` in the project root:
 
-Run the project's CI pipeline and build an uberjar (this will fail until you edit the tests to pass):
+    {"headers": {"cookie": "session-token=...; JSESSIONID=..."}}
 
-    $ clojure -T:build ci
+Get this by logging into the site, opening DevTools → Network, and doing
+"Copy as fetch" on any page load, then pasting just the `headers` object here.
+The cookie expires periodically — if the converter reports "no active passing
+found", re-capture it.
 
-Run that uberjar:
+**Caching:** every fetched URL is cached forever under `cache/` — if a stale
+response is causing wrong output, delete the specific file under `cache/` to
+force a refetch (refreshing `fetch.json` alone won't invalidate it).
 
-    $ java -jar target/lj-epub.convert-0.1.0-SNAPSHOT.jar
-
-## Options
-
-FIXME: listing of options this app accepts.
-
-## Examples
-
-...
-
-### Bugs
-
-...
-
-### Any Other Sections
-### That You Think
-### Might be Useful
-
+Output lands in `target/<course-slug>.epub`.

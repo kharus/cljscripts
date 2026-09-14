@@ -107,6 +107,9 @@
   (download-aisyst-json
    (str course-root course-slug)))
 
+(defn latest [course-meta]
+  (last (sort-by :version course-meta)))
+
 (def passings-url
   "https://aisystant.system-school.ru/api/courses/courses-passing")
 
@@ -114,8 +117,7 @@
   [passings course-slug]
   (->> passings
        (filter #(and (not (:archived %))
-                     (= course-slug (:coursePath %))
-                     (not= "NONE" (:status %))))
+                     (= course-slug (:coursePath %))))
        first))
 
 (defn extract-course-sections [course-meta]
@@ -186,7 +188,7 @@
                                    (-> (extract-latest-passing passings course-slug)
                                        :id))
         course-meta (download-course-metadata course-slug)
-        course-sections (extract-course-sections (last course-meta))
+        course-sections (extract-course-sections (latest course-meta))
         text-only-course-sections (filter #(= :text (:type %)) course-sections)
         enriched-course-sections (map attach-article text-only-course-sections)
         image-urls (mapcat extract-image-urls enriched-course-sections)
@@ -194,7 +196,7 @@
         target-path (fs/path epub-dir "OEBPS" "content.opf")
         target-section-folder (fs/path epub-dir "OEBPS" "Text")
         images (map (partial download-image-aisyst (fs/path epub-dir "OEBPS" "Images")) image-urls)
-        latest-course-meta (last course-meta)
+        latest-course-meta (latest course-meta)
         all-sections (extract-course-sections latest-course-meta)
         toc-items (toc-sections all-sections)]
     (fs/create-dirs "target")

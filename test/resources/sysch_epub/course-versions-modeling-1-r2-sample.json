@@ -1,0 +1,2189 @@
+[
+  {
+    "id": 772,
+    "version": "2026-06-30T0620",
+    "test": false,
+    "changeLog": "Обновлены разделы с R2.6:9 и до конца руководства.",
+    "sections": [
+      {
+        "id": 79932,
+        "index": 0,
+        "title": "R2.1 - Основы моделирования",
+        "type": "HEADER",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 79933,
+        "index": 50,
+        "title": "R2.1:1 - Мышление и моделирование",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 79679,
+        "updatedPrevVersionSectionId": 79679
+      },
+      {
+        "id": 79934,
+        "index": 100,
+        "title": "R2.1:Mod1 - Материальные модели",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 79680,
+        "updatedPrevVersionSectionId": 79680
+      },
+      {
+        "id": 79935,
+        "index": 150,
+        "title": "R2.1:Mod2 - Информационные модели",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 79681,
+        "updatedPrevVersionSectionId": 79681
+      },
+      {
+        "id": 79936,
+        "index": 200,
+        "title": "R2.1:2 - Моделируем объекты",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 79682,
+        "updatedPrevVersionSectionId": 79682
+      },
+      {
+        "id": 79937,
+        "index": 250,
+        "title": "R2.1:Mod3 - Выделяем объекты",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 79683,
+        "updatedPrevVersionSectionId": 79683
+      },
+      {
+        "id": 79938,
+        "index": 300,
+        "title": "R2.1:Tasks1 - Выделяем объекты осознанно",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 79684,
+        "updatedPrevVersionSectionId": 79684
+      },
+      {
+        "id": 79939,
+        "index": 350,
+        "title": "R2.1:Mod4 - Выделяем объекты в роли",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 79685,
+        "updatedPrevVersionSectionId": 79685
+      },
+      {
+        "id": 79940,
+        "index": 400,
+        "title": "R2.1:3 - Роль, метод и предметная область",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 79686,
+        "updatedPrevVersionSectionId": 79686
+      },
+      {
+        "id": 79941,
+        "index": 450,
+        "title": "R2.1:Tasks2 - Создаём модель предметной области",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 79687,
+        "updatedPrevVersionSectionId": 79687
+      },
+      {
+        "id": 79942,
+        "index": 500,
+        "title": "R2.1:Mod5 - Описываем методы роли",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 79688,
+        "updatedPrevVersionSectionId": 79688
+      },
+      {
+        "id": 79943,
+        "index": 550,
+        "title": "R2.1:4 - Объекты для разных ролей",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 79689,
+        "updatedPrevVersionSectionId": 79689
+      },
+      {
+        "id": 79944,
+        "index": 600,
+        "title": "R2.1:Mod6 - Сверяем имена объектов",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 79690,
+        "updatedPrevVersionSectionId": 79690
+      },
+      {
+        "id": 79945,
+        "index": 650,
+        "title": "R2.1:Tasks3 - Ищем разные объекты",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 79691,
+        "updatedPrevVersionSectionId": 79691
+      },
+      {
+        "id": 79946,
+        "index": 700,
+        "title": "R2.1:5 - Моделируем деятельность создателей",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 79692,
+        "updatedPrevVersionSectionId": 79692
+      },
+      {
+        "id": 79947,
+        "index": 750,
+        "title": "R2.1:Mod7 - Моделируем инструкцию по методу",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 79693,
+        "updatedPrevVersionSectionId": 79693
+      },
+      {
+        "id": 79948,
+        "index": 800,
+        "title": "R2.1:5 - Выделяем создателей",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 79694,
+        "updatedPrevVersionSectionId": 79694
+      },
+      {
+        "id": 79949,
+        "index": 850,
+        "title": "R2.1:6 - Моделируем продукт и его использование.",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 79695,
+        "updatedPrevVersionSectionId": 79695
+      },
+      {
+        "id": 79950,
+        "index": 900,
+        "title": "R2.2 - Моделирование для создания преимуществ в коммуникативных ситуациях",
+        "type": "HEADER",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 79951,
+        "index": 950,
+        "title": "R2.2:1 - Прагматическая коммуникация и лидерство",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 79697,
+        "updatedPrevVersionSectionId": 79697
+      },
+      {
+        "id": 79952,
+        "index": 1000,
+        "title": "R2.2:Tasks1 - Преобразуем картины мира",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 79698,
+        "updatedPrevVersionSectionId": 79698
+      },
+      {
+        "id": 79953,
+        "index": 1050,
+        "title": "R2.2:2 - Эпистемический статус высказывания и эпистемическое состояние агентов",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 79699,
+        "updatedPrevVersionSectionId": 79699
+      },
+      {
+        "id": 79954,
+        "index": 1100,
+        "title": "R2.2:Mod1 - Моделируем картины мира",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 79700,
+        "updatedPrevVersionSectionId": 79700
+      },
+      {
+        "id": 79955,
+        "index": 1150,
+        "title": "R2.2:3 - Типология для модели ролей",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 79701,
+        "updatedPrevVersionSectionId": 79701
+      },
+      {
+        "id": 79956,
+        "index": 1200,
+        "title": "R2.2:4 - Что делать с конфликтом ролей",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 79702,
+        "updatedPrevVersionSectionId": 79702
+      },
+      {
+        "id": 79957,
+        "index": 1250,
+        "title": "R2.2:Mod2 - Осознаём путаницу ролей",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 79703,
+        "updatedPrevVersionSectionId": 79703
+      },
+      {
+        "id": 79958,
+        "index": 1300,
+        "title": "R2.2:5 - Рамки целеполагания",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 79704,
+        "updatedPrevVersionSectionId": 79704
+      },
+      {
+        "id": 79959,
+        "index": 1350,
+        "title": "R2.2:Mod3 - Моделируем различные предпочтения",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 79705,
+        "updatedPrevVersionSectionId": 79705
+      },
+      {
+        "id": 79960,
+        "index": 1400,
+        "title": "R2.2:6 - Риторика - убедительная речь",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 79706,
+        "updatedPrevVersionSectionId": 79706
+      },
+      {
+        "id": 79961,
+        "index": 1450,
+        "title": "R2.2:7 - Когда аргументов мало",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 79707,
+        "updatedPrevVersionSectionId": 79707
+      },
+      {
+        "id": 79962,
+        "index": 1500,
+        "title": "R2.2:Mod4 - Планируем правильную коммуникацию",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 79708,
+        "updatedPrevVersionSectionId": 79708
+      },
+      {
+        "id": 79963,
+        "index": 1550,
+        "title": "R2.2:8 - Полезные ссылки",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": 79709
+      },
+      {
+        "id": 79964,
+        "index": 1600,
+        "title": "R2.3 - Распознавание дребезга и реагирование на него",
+        "type": "HEADER",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 79965,
+        "index": 1650,
+        "title": "R2.3:1 - Шкала скорости мышления",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 79711,
+        "updatedPrevVersionSectionId": 79711
+      },
+      {
+        "id": 79966,
+        "index": 1700,
+        "title": "R2.3:Tasks1 - Анализ быстрых и медленных навыков",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 79712,
+        "updatedPrevVersionSectionId": 79712
+      },
+      {
+        "id": 79967,
+        "index": 1750,
+        "title": "R2.3:2 - Как мы распознаём дребезг",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 79713,
+        "updatedPrevVersionSectionId": 79713
+      },
+      {
+        "id": 79968,
+        "index": 1800,
+        "title": "R2.3:3 - Работа с дребезгом как фундаментальный навык",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 79714,
+        "updatedPrevVersionSectionId": 79714
+      },
+      {
+        "id": 79969,
+        "index": 1850,
+        "title": "R2.3:4 - Поиск ощущения дребезга",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 79715,
+        "updatedPrevVersionSectionId": 79715
+      },
+      {
+        "id": 79970,
+        "index": 1900,
+        "title": "R2.3:Mod1 - Чувствуем дребезг",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 79716,
+        "updatedPrevVersionSectionId": 79716
+      },
+      {
+        "id": 79971,
+        "index": 1950,
+        "title": "R2.3:5 - Отслеживание изменений и внимание к сигналам",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 79717,
+        "updatedPrevVersionSectionId": 79717
+      },
+      {
+        "id": 79972,
+        "index": 2000,
+        "title": "R2.3:6 - Метрики состояний объектов",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 79718,
+        "updatedPrevVersionSectionId": 79718
+      },
+      {
+        "id": 79973,
+        "index": 2050,
+        "title": "R2.3:Tasks2 - Игнорируем дребезг",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": 79719
+      },
+      {
+        "id": 79974,
+        "index": 2100,
+        "title": "R2.3:7 - Переходить от сигналов к действиям",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 79720,
+        "updatedPrevVersionSectionId": 79720
+      },
+      {
+        "id": 79975,
+        "index": 2150,
+        "title": "R2.3:Tasks3 - Обдумываем досуг",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 79721,
+        "updatedPrevVersionSectionId": 79721
+      },
+      {
+        "id": 79976,
+        "index": 2200,
+        "title": "R2.4 - Создание и передача объяснений",
+        "type": "HEADER",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 79977,
+        "index": 2250,
+        "title": "R2.4:1- Практика исследований",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 79723,
+        "updatedPrevVersionSectionId": 79723
+      },
+      {
+        "id": 79978,
+        "index": 2300,
+        "title": "R2.4:2 - Зачем создаются объяснения",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 79724,
+        "updatedPrevVersionSectionId": 79724
+      },
+      {
+        "id": 79979,
+        "index": 2350,
+        "title": "R2.4:3 - Как анализируют объяснения",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 79725,
+        "updatedPrevVersionSectionId": 79725
+      },
+      {
+        "id": 79980,
+        "index": 2400,
+        "title": "R2.4:Tasks1 - Следим за наличием объяснений",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 79726,
+        "updatedPrevVersionSectionId": 79726
+      },
+      {
+        "id": 79981,
+        "index": 2450,
+        "title": "R2.4:4 - Утверждения и убеждения",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 79727,
+        "updatedPrevVersionSectionId": 79727
+      },
+      {
+        "id": 79982,
+        "index": 2500,
+        "title": "R2.4:Mod1 - Анализируем объяснения",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 79728,
+        "updatedPrevVersionSectionId": 79728
+      },
+      {
+        "id": 79983,
+        "index": 2550,
+        "title": "R2.4:5 - Наблюдения, предсказания и допущения",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 79729,
+        "updatedPrevVersionSectionId": 79729
+      },
+      {
+        "id": 79984,
+        "index": 2600,
+        "title": "R2.4:Mod2 - Раскладываем картину мира по типам высказываний",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 79730,
+        "updatedPrevVersionSectionId": 79730
+      },
+      {
+        "id": 79985,
+        "index": 2650,
+        "title": "R2.4:6 - Метод создания объяснений",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 79731,
+        "updatedPrevVersionSectionId": 79731
+      },
+      {
+        "id": 79986,
+        "index": 2700,
+        "title": "R2.4:7 - Исследования самого себя",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 79732,
+        "updatedPrevVersionSectionId": 79732
+      },
+      {
+        "id": 79987,
+        "index": 2750,
+        "title": "R2.4:Tasks3 - Дневник наблюдений за объяснениями в коммуникации",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 79733,
+        "updatedPrevVersionSectionId": 79733
+      },
+      {
+        "id": 79988,
+        "index": 2800,
+        "title": "R2.4:8 - Как оценить объяснение",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 79734,
+        "updatedPrevVersionSectionId": 79734
+      },
+      {
+        "id": 79989,
+        "index": 2850,
+        "title": "R2.4:Tasks4 - Готовим объяснение",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 79735,
+        "updatedPrevVersionSectionId": 79735
+      },
+      {
+        "id": 79990,
+        "index": 2900,
+        "title": "R2.5 - Распознавание слабых сигналов как метод лидера",
+        "type": "HEADER",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 79991,
+        "index": 2950,
+        "title": "R2.5:1 - Зачем мы говорим о слабых сигналах",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 79737,
+        "updatedPrevVersionSectionId": 79737
+      },
+      {
+        "id": 79992,
+        "index": 3000,
+        "title": "R2.5:2 - Что такое слабые сигналы",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 79738,
+        "updatedPrevVersionSectionId": 79738
+      },
+      {
+        "id": 79993,
+        "index": 3050,
+        "title": "R2.5:3 - Особенности определения сигналов",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 79739,
+        "updatedPrevVersionSectionId": 79739
+      },
+      {
+        "id": 79994,
+        "index": 3100,
+        "title": "R2.5:4 - Возможные каналы наблюдения за сигналами",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 79740,
+        "updatedPrevVersionSectionId": 79740
+      },
+      {
+        "id": 79995,
+        "index": 3150,
+        "title": "R2.5:Tasks1 - Ищем сигналы о неготовности сотрудничать",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 79741,
+        "updatedPrevVersionSectionId": 79741
+      },
+      {
+        "id": 79996,
+        "index": 3200,
+        "title": "R2.5:5 - Как использовать сигналы",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 79742,
+        "updatedPrevVersionSectionId": 79742
+      },
+      {
+        "id": 79997,
+        "index": 3250,
+        "title": "R2.5:6 - Практики лидерства",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 79743,
+        "updatedPrevVersionSectionId": 79743
+      },
+      {
+        "id": 79998,
+        "index": 3300,
+        "title": "R2.5:Tasks2 - Задание: Действия для изменения ситуаций",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 79744,
+        "updatedPrevVersionSectionId": 79744
+      },
+      {
+        "id": 79999,
+        "index": 3350,
+        "title": "R2.6 - Удержание внимания в операционном менеджменте",
+        "type": "HEADER",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 80000,
+        "index": 3400,
+        "title": "R2.6:1 - Динамическое рассмотрение объектов",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 79746,
+        "updatedPrevVersionSectionId": 79746
+      },
+      {
+        "id": 80001,
+        "index": 3450,
+        "title": "R2.6:2 -Чеклисты и смена состояний объектов",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 79747,
+        "updatedPrevVersionSectionId": 79747
+      },
+      {
+        "id": 80002,
+        "index": 3500,
+        "title": "R2.6:Mod1 - Определяем состояния предметов метода",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 79748,
+        "updatedPrevVersionSectionId": 79748
+      },
+      {
+        "id": 80003,
+        "index": 3550,
+        "title": "R2.6:Tasks1 - Обдумываем особенности ваших методов",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 79749,
+        "updatedPrevVersionSectionId": 79749
+      },
+      {
+        "id": 80004,
+        "index": 3600,
+        "title": "R2.6:3 - Чеклисты как способ удержания внимания",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 79750,
+        "updatedPrevVersionSectionId": 79750
+      },
+      {
+        "id": 80005,
+        "index": 3650,
+        "title": "R2.6:Tasks2 - Практики ежедневных и еженедельных вопросов",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 79751,
+        "updatedPrevVersionSectionId": 79751
+      },
+      {
+        "id": 80006,
+        "index": 3700,
+        "title": "R2.6:4 - Измерение изменений",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 79752,
+        "updatedPrevVersionSectionId": 79752
+      },
+      {
+        "id": 80007,
+        "index": 3750,
+        "title": "R2.6:5 - Шкалы",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 79753,
+        "updatedPrevVersionSectionId": 79753
+      },
+      {
+        "id": 80008,
+        "index": 3800,
+        "title": "R2.6:6 - Система и граф создателей системы",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 79754,
+        "updatedPrevVersionSectionId": 79754
+      },
+      {
+        "id": 80009,
+        "index": 3850,
+        "title": "R2.6:Tasks3 - Определяем целевую систему и ваше место в графе её создателей",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 79755,
+        "updatedPrevVersionSectionId": 79755
+      },
+      {
+        "id": 80010,
+        "index": 3900,
+        "title": "R2.6:7 - Онтология путешествия объектов",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 79756,
+        "updatedPrevVersionSectionId": 79756
+      },
+      {
+        "id": 80011,
+        "index": 3950,
+        "title": "R2.6:Tasks4 - Путешествие объекта через предприятие",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": 79757
+      },
+      {
+        "id": 80012,
+        "index": 4000,
+        "title": "R2.6:8 - Переключение внимания и напоминания",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 79758,
+        "updatedPrevVersionSectionId": 79758
+      },
+      {
+        "id": 80013,
+        "index": 4050,
+        "title": "R2.6:9 - Проблемы и практики удержания внимания",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": 79759
+      },
+      {
+        "id": 80014,
+        "index": 4100,
+        "title": "R2.6:Tasks5 - Создаём чеклист",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 80015,
+        "index": 4150,
+        "title": "R2.6:10 - Перестройка расписания",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": 79760
+      },
+      {
+        "id": 80016,
+        "index": 4200,
+        "title": "R2.6:11 - Что дальше?",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      }
+    ],
+    "course": {
+      "id": 185,
+      "path": "modeling-1-r2",
+      "productCode": "modeling-1-r2",
+      "name": "R2. Моделирование как основа коммуникации и лидерства",
+      "authors": "П. Медведева, В. Агроскин, А. Лубенченко",
+      "description": "",
+      "activeVersionId": 772,
+      "activeVersion": "2026-06-30T0620",
+      "activeVersionChangeLog": "Обновлены разделы с R2.6:9 и до конца руководства.",
+      "precondition": null,
+      "online": true,
+      "deprecated": false,
+      "hidden": false,
+      "roleRestriction": [],
+      "qlBegin": null,
+      "qlFinish": null,
+      "index": null,
+      "testIndex": null,
+      "discussion": null,
+      "test": false,
+      "unpublishedVersion": null,
+      "versions": null
+    },
+    "symbolCount": 320945
+  },
+  {
+    "id": 650,
+    "version": "2026-01-07T1654",
+    "test": false,
+    "changeLog": "Черновая версия руководства",
+    "sections": [
+      {
+        "id": 73162,
+        "index": 0,
+        "title": "1. Основы моделирования",
+        "type": "HEADER",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73163,
+        "index": 50,
+        "title": "Мышление и моделирование",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73164,
+        "index": 100,
+        "title": "Упражнение 1.1.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73165,
+        "index": 150,
+        "title": "Упражнение 1.2.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73166,
+        "index": 200,
+        "title": "Кто моделирует?",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73167,
+        "index": 250,
+        "title": "Упражнение 1.3.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73168,
+        "index": 300,
+        "title": "Подход к выделению объектов и внимание",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73169,
+        "index": 350,
+        "title": "Задание 1.4.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73170,
+        "index": 400,
+        "title": "Упражнение 1.5.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73171,
+        "index": 450,
+        "title": "Роль, метод и предметная область",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73172,
+        "index": 500,
+        "title": "Задание 1.6",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73173,
+        "index": 550,
+        "title": "Упражнение 1.7.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73174,
+        "index": 600,
+        "title": "Объекты для разных ролей",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73175,
+        "index": 650,
+        "title": "Упражнение 1.8.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73176,
+        "index": 700,
+        "title": "Задание 1.9.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73177,
+        "index": 750,
+        "title": "Что моделируем? Деятельность создателей.",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73178,
+        "index": 800,
+        "title": "Упражнение 1.10.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73179,
+        "index": 850,
+        "title": "Что моделируем? Создатели.",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73180,
+        "index": 900,
+        "title": "Что моделируем? Продукт и его использование.",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73181,
+        "index": 950,
+        "title": "Что моделируем? Знание агентов.",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73182,
+        "index": 1000,
+        "title": "2. Коммуникация и лидерство",
+        "type": "HEADER",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73183,
+        "index": 1050,
+        "title": "Как использовать модели для создания преимущества в коммуникативных ситуациях",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73184,
+        "index": 1100,
+        "title": "Концептуальная часть",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73185,
+        "index": 1150,
+        "title": "Задание 2.1.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73186,
+        "index": 1200,
+        "title": "Эпистемическое состояние агентов",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73187,
+        "index": 1250,
+        "title": "Задание 2.2.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73188,
+        "index": 1300,
+        "title": "Роли, предпочтения, стратегии",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73189,
+        "index": 1350,
+        "title": "Упражнение 2.3.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73190,
+        "index": 1400,
+        "title": "Рамки целеполагания",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73191,
+        "index": 1450,
+        "title": "Упражнение 2.4.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73192,
+        "index": 1500,
+        "title": "Риторическая часть",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73193,
+        "index": 1550,
+        "title": "Когда аргументов мало",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73194,
+        "index": 1600,
+        "title": "Упражнение 2.5.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73195,
+        "index": 1650,
+        "title": "Внешние ссылки",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73196,
+        "index": 1700,
+        "title": "3. Создание и передача объяснений",
+        "type": "HEADER",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73197,
+        "index": 1750,
+        "title": "Практика исследований",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73198,
+        "index": 1800,
+        "title": "Зачем создаются объяснения",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73199,
+        "index": 1850,
+        "title": "Как анализируют объяснения",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73200,
+        "index": 1900,
+        "title": "Задание 3.1.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73201,
+        "index": 1950,
+        "title": "Утверждения и убеждения",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73202,
+        "index": 2000,
+        "title": "Упражнение 3.2.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73203,
+        "index": 2050,
+        "title": "Предсказания и допущения",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73204,
+        "index": 2100,
+        "title": "Упражнение 3.3.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73205,
+        "index": 2150,
+        "title": "Создание объяснений",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73206,
+        "index": 2200,
+        "title": "Исследования самого себя",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73207,
+        "index": 2250,
+        "title": "Как оценить объяснение",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73208,
+        "index": 2300,
+        "title": "Задание 3.4.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73209,
+        "index": 2350,
+        "title": "4. Распознавать слабые сигналы в работе с людьми",
+        "type": "HEADER",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73210,
+        "index": 2400,
+        "title": "Приоритизация потоков",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73211,
+        "index": 2450,
+        "title": "Метрики",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73212,
+        "index": 2500,
+        "title": "Задание 4.1",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73213,
+        "index": 2550,
+        "title": "Действия для изменения состояний объектов",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73214,
+        "index": 2600,
+        "title": "Задание 4.2",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73215,
+        "index": 2650,
+        "title": "5. Удержание внимания",
+        "type": "HEADER",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73216,
+        "index": 2700,
+        "title": "Динамическое рассмотрение объектов",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73217,
+        "index": 2750,
+        "title": "Смены состояний объектов",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73218,
+        "index": 2800,
+        "title": "Упражнение 5.1",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73219,
+        "index": 2850,
+        "title": "Чеклисты как способ удержания внимания",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73220,
+        "index": 2900,
+        "title": "Задание 5.2",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73221,
+        "index": 2950,
+        "title": "Измерение изменений",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73222,
+        "index": 3000,
+        "title": "Шкалы",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73223,
+        "index": 3050,
+        "title": "Вещь и граф создателей вещи",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73224,
+        "index": 3100,
+        "title": "Задание 5.3",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73225,
+        "index": 3150,
+        "title": "Онтология путешествий объектов",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73226,
+        "index": 3200,
+        "title": "Задание 5.4",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73227,
+        "index": 3250,
+        "title": "Переключение внимания и напоминания",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73228,
+        "index": 3300,
+        "title": "Проблемы и практики удержания внимания",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73229,
+        "index": 3350,
+        "title": "Перестройка расписания",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73230,
+        "index": 3400,
+        "title": "Задание 5.5",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73231,
+        "index": 3450,
+        "title": "6. Совместная работа по моделям",
+        "type": "HEADER",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 73232,
+        "index": 3500,
+        "title": "Практическое применение моделирования",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      }
+    ],
+    "course": {
+      "id": 185,
+      "path": "modeling-1-r2",
+      "productCode": "modeling-1-r2",
+      "name": "R2. Моделирование как основа коммуникации и лидерства",
+      "authors": "П. Медведева, В. Агроскин, А. Лубенченко",
+      "description": "",
+      "activeVersionId": 772,
+      "activeVersion": "2026-06-30T0620",
+      "activeVersionChangeLog": "Обновлены разделы с R2.6:9 и до конца руководства.",
+      "precondition": null,
+      "online": true,
+      "deprecated": false,
+      "hidden": false,
+      "roleRestriction": [],
+      "qlBegin": null,
+      "qlFinish": null,
+      "index": null,
+      "testIndex": null,
+      "discussion": null,
+      "test": false,
+      "unpublishedVersion": null,
+      "versions": null
+    },
+    "symbolCount": 235822
+  },
+  {
+    "id": 719,
+    "version": "2026-04-13T2009",
+    "test": false,
+    "changeLog": "исправлены битые ссылки в сносках и восстановлены все изображения",
+    "sections": [
+      {
+        "id": 76673,
+        "index": 0,
+        "title": "1. Основы моделирования",
+        "type": "HEADER",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 76674,
+        "index": 50,
+        "title": "Мышление и моделирование",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 76553,
+        "updatedPrevVersionSectionId": 76553
+      },
+      {
+        "id": 76675,
+        "index": 100,
+        "title": "Упражнение 1.1.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 76554,
+        "updatedPrevVersionSectionId": 76554
+      },
+      {
+        "id": 76676,
+        "index": 150,
+        "title": "Упражнение 1.2.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 76555,
+        "updatedPrevVersionSectionId": 76555
+      },
+      {
+        "id": 76677,
+        "index": 200,
+        "title": "Кто моделирует?",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 76556,
+        "updatedPrevVersionSectionId": 76556
+      },
+      {
+        "id": 76678,
+        "index": 250,
+        "title": "Упражнение 1.3.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 76557,
+        "updatedPrevVersionSectionId": 76557
+      },
+      {
+        "id": 76679,
+        "index": 300,
+        "title": "Подход к выделению объектов и внимание",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 76558,
+        "updatedPrevVersionSectionId": 76558
+      },
+      {
+        "id": 76680,
+        "index": 350,
+        "title": "Задание 1.4.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 76559,
+        "updatedPrevVersionSectionId": 76559
+      },
+      {
+        "id": 76681,
+        "index": 400,
+        "title": "Упражнение 1.5.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 76560,
+        "updatedPrevVersionSectionId": 76560
+      },
+      {
+        "id": 76682,
+        "index": 450,
+        "title": "Роль, метод и предметная область",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 76561,
+        "updatedPrevVersionSectionId": 76561
+      },
+      {
+        "id": 76683,
+        "index": 500,
+        "title": "Задание 1.6",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 76562,
+        "updatedPrevVersionSectionId": 76562
+      },
+      {
+        "id": 76684,
+        "index": 550,
+        "title": "Упражнение 1.7.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 76563,
+        "updatedPrevVersionSectionId": 76563
+      },
+      {
+        "id": 76685,
+        "index": 600,
+        "title": "Объекты для разных ролей",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 76564,
+        "updatedPrevVersionSectionId": 76564
+      },
+      {
+        "id": 76686,
+        "index": 650,
+        "title": "Упражнение 1.8.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 76565,
+        "updatedPrevVersionSectionId": 76565
+      },
+      {
+        "id": 76687,
+        "index": 700,
+        "title": "Задание 1.9.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 76566,
+        "updatedPrevVersionSectionId": 76566
+      },
+      {
+        "id": 76688,
+        "index": 750,
+        "title": "Что моделируем? Деятельность создателей.",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 76567,
+        "updatedPrevVersionSectionId": 76567
+      },
+      {
+        "id": 76689,
+        "index": 800,
+        "title": "Упражнение 1.10.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 76568,
+        "updatedPrevVersionSectionId": 76568
+      },
+      {
+        "id": 76690,
+        "index": 850,
+        "title": "Что моделируем? Создатели.",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 76569,
+        "updatedPrevVersionSectionId": 76569
+      },
+      {
+        "id": 76691,
+        "index": 900,
+        "title": "Что моделируем? Продукт и его использование.",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 76570,
+        "updatedPrevVersionSectionId": 76570
+      },
+      {
+        "id": 76692,
+        "index": 950,
+        "title": "Что моделируем? Знание агентов.",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 76571,
+        "updatedPrevVersionSectionId": 76571
+      },
+      {
+        "id": 76693,
+        "index": 1000,
+        "title": "2. Коммуникация и лидерство",
+        "type": "HEADER",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 76694,
+        "index": 1050,
+        "title": "Как использовать модели для создания преимущества в коммуникативных ситуациях",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 76573,
+        "updatedPrevVersionSectionId": 76573
+      },
+      {
+        "id": 76695,
+        "index": 1100,
+        "title": "Концептуальная часть",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 76574,
+        "updatedPrevVersionSectionId": 76574
+      },
+      {
+        "id": 76696,
+        "index": 1150,
+        "title": "Задание 2.1.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 76575,
+        "updatedPrevVersionSectionId": 76575
+      },
+      {
+        "id": 76697,
+        "index": 1200,
+        "title": "Эпистемическое состояние агентов",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 76576,
+        "updatedPrevVersionSectionId": 76576
+      },
+      {
+        "id": 76698,
+        "index": 1250,
+        "title": "Задание 2.2.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 76577,
+        "updatedPrevVersionSectionId": 76577
+      },
+      {
+        "id": 76699,
+        "index": 1300,
+        "title": "Роли, предпочтения, стратегии",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 76578,
+        "updatedPrevVersionSectionId": 76578
+      },
+      {
+        "id": 76700,
+        "index": 1350,
+        "title": "Упражнение 2.3.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 76579,
+        "updatedPrevVersionSectionId": 76579
+      },
+      {
+        "id": 76701,
+        "index": 1400,
+        "title": "Рамки целеполагания",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 76580,
+        "updatedPrevVersionSectionId": 76580
+      },
+      {
+        "id": 76702,
+        "index": 1450,
+        "title": "Упражнение 2.4.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 76581,
+        "updatedPrevVersionSectionId": 76581
+      },
+      {
+        "id": 76703,
+        "index": 1500,
+        "title": "Риторическая часть",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 76582,
+        "updatedPrevVersionSectionId": 76582
+      },
+      {
+        "id": 76704,
+        "index": 1550,
+        "title": "Когда аргументов мало",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 76583,
+        "updatedPrevVersionSectionId": 76583
+      },
+      {
+        "id": 76705,
+        "index": 1600,
+        "title": "Упражнение 2.5.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 76584,
+        "updatedPrevVersionSectionId": 76584
+      },
+      {
+        "id": 76706,
+        "index": 1650,
+        "title": "Внешние ссылки",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 76585,
+        "updatedPrevVersionSectionId": 76585
+      },
+      {
+        "id": 76707,
+        "index": 1700,
+        "title": "3. Создание и передача объяснений",
+        "type": "HEADER",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 76708,
+        "index": 1750,
+        "title": "Практика исследований",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 76587,
+        "updatedPrevVersionSectionId": 76587
+      },
+      {
+        "id": 76709,
+        "index": 1800,
+        "title": "Зачем создаются объяснения",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 76588,
+        "updatedPrevVersionSectionId": 76588
+      },
+      {
+        "id": 76710,
+        "index": 1850,
+        "title": "Как анализируют объяснения",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 76589,
+        "updatedPrevVersionSectionId": 76589
+      },
+      {
+        "id": 76711,
+        "index": 1900,
+        "title": "Задание 3.1.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 76590,
+        "updatedPrevVersionSectionId": 76590
+      },
+      {
+        "id": 76712,
+        "index": 1950,
+        "title": "Утверждения и убеждения",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 76591,
+        "updatedPrevVersionSectionId": 76591
+      },
+      {
+        "id": 76713,
+        "index": 2000,
+        "title": "Упражнение 3.2.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 76592,
+        "updatedPrevVersionSectionId": 76592
+      },
+      {
+        "id": 76714,
+        "index": 2050,
+        "title": "Предсказания и допущения",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 76593,
+        "updatedPrevVersionSectionId": 76593
+      },
+      {
+        "id": 76715,
+        "index": 2100,
+        "title": "Упражнение 3.3.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 76594,
+        "updatedPrevVersionSectionId": 76594
+      },
+      {
+        "id": 76716,
+        "index": 2150,
+        "title": "Создание объяснений",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 76595,
+        "updatedPrevVersionSectionId": 76595
+      },
+      {
+        "id": 76717,
+        "index": 2200,
+        "title": "Исследования самого себя",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 76596,
+        "updatedPrevVersionSectionId": 76596
+      },
+      {
+        "id": 76718,
+        "index": 2250,
+        "title": "Как оценить объяснение",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 76597,
+        "updatedPrevVersionSectionId": 76597
+      },
+      {
+        "id": 76719,
+        "index": 2300,
+        "title": "Задание 3.4.",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 76598,
+        "updatedPrevVersionSectionId": 76598
+      },
+      {
+        "id": 76720,
+        "index": 2350,
+        "title": "R2.4 - Распознавать слабые сигналы в работе с людьми",
+        "type": "HEADER",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 76721,
+        "index": 2400,
+        "title": "R2.4:1 - Цели раздела",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 76600,
+        "updatedPrevVersionSectionId": 76600
+      },
+      {
+        "id": 76722,
+        "index": 2450,
+        "title": "R2.4:2 - Зачем мы говорим о слабых сигналах",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 76601,
+        "updatedPrevVersionSectionId": 76601
+      },
+      {
+        "id": 76723,
+        "index": 2500,
+        "title": "R2.4:3 - Что такое слабые сигналы",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 76602,
+        "updatedPrevVersionSectionId": 76602
+      },
+      {
+        "id": 76724,
+        "index": 2550,
+        "title": "R2.4:4 - Особенности определения сигналов",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 76603,
+        "updatedPrevVersionSectionId": 76603
+      },
+      {
+        "id": 76725,
+        "index": 2600,
+        "title": "R2.4:5 - Возможные каналы наблюдения за сигналами",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 76604,
+        "updatedPrevVersionSectionId": 76604
+      },
+      {
+        "id": 76726,
+        "index": 2650,
+        "title": "R2.4:6 - Отслеживаемые характеристики",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 76605,
+        "updatedPrevVersionSectionId": 76605
+      },
+      {
+        "id": 76727,
+        "index": 2700,
+        "title": "R2.4:Tasks1 - Задание: Сигналы о неготовности сотрудничать",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 76606,
+        "updatedPrevVersionSectionId": 76606
+      },
+      {
+        "id": 76728,
+        "index": 2750,
+        "title": "R2.4:7 - Как использовать сигналы",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 76607,
+        "updatedPrevVersionSectionId": 76607
+      },
+      {
+        "id": 76729,
+        "index": 2800,
+        "title": "R2.4:8 - Действия для изменения состояний сотрудников",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 76608,
+        "updatedPrevVersionSectionId": 76608
+      },
+      {
+        "id": 76730,
+        "index": 2850,
+        "title": "R2.4:Tasks2 - Задание: Действия для изменения ситуаций",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 76609,
+        "updatedPrevVersionSectionId": 76609
+      },
+      {
+        "id": 76731,
+        "index": 2900,
+        "title": "R2.5 - Удержание внимания",
+        "type": "HEADER",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 76732,
+        "index": 2950,
+        "title": "R2.5:1 - Динамическое рассмотрение объектов",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 76611,
+        "updatedPrevVersionSectionId": 76611
+      },
+      {
+        "id": 76733,
+        "index": 3000,
+        "title": "R2.5:2 - Смены состояний объектов",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 76612,
+        "updatedPrevVersionSectionId": 76612
+      },
+      {
+        "id": 76734,
+        "index": 3050,
+        "title": "R2.5:Mod1 - Упражнение: Состояния предметов метода",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 76613,
+        "updatedPrevVersionSectionId": 76613
+      },
+      {
+        "id": 76735,
+        "index": 3100,
+        "title": "R2.5:3 - Чеклисты как способ удержания внимания",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 76614,
+        "updatedPrevVersionSectionId": 76614
+      },
+      {
+        "id": 76736,
+        "index": 3150,
+        "title": "R2.5:Tasks1 - Задание: Практика «Ежедневные вопросы»",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 76737,
+        "index": 3200,
+        "title": "R2.5:4 - Измерение изменений",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 76616,
+        "updatedPrevVersionSectionId": 76616
+      },
+      {
+        "id": 76738,
+        "index": 3250,
+        "title": "R2.5:5 - Шкалы",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 76617,
+        "updatedPrevVersionSectionId": 76617
+      },
+      {
+        "id": 76739,
+        "index": 3300,
+        "title": "R2.5:6 - Система и граф создателей системы",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": 76618
+      },
+      {
+        "id": 76740,
+        "index": 3350,
+        "title": "R2.5:Tasks2 - Задание: Система и граф создателей",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 76619,
+        "updatedPrevVersionSectionId": 76619
+      },
+      {
+        "id": 76741,
+        "index": 3400,
+        "title": "R2.5:7 - Онтология путешествий объектов",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": 76620
+      },
+      {
+        "id": 76742,
+        "index": 3450,
+        "title": "R2.5:Tasks3 - Задание: Путешествие объекта через предприятие",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 76621,
+        "updatedPrevVersionSectionId": 76621
+      },
+      {
+        "id": 76743,
+        "index": 3500,
+        "title": "R2.5:8 - Переключение внимания и напоминания",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 76622,
+        "updatedPrevVersionSectionId": 76622
+      },
+      {
+        "id": 76744,
+        "index": 3550,
+        "title": "R2.5:9 - Проблемы и практики удержания внимания",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 76623,
+        "updatedPrevVersionSectionId": 76623
+      },
+      {
+        "id": 76745,
+        "index": 3600,
+        "title": "R2.5:10 - Перестройка расписания",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 76624,
+        "updatedPrevVersionSectionId": 76624
+      },
+      {
+        "id": 76746,
+        "index": 3650,
+        "title": "R2.5:Tasks4 - Задание: Коллективный чеклист",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": 76625,
+        "updatedPrevVersionSectionId": 76625
+      },
+      {
+        "id": 76747,
+        "index": 3700,
+        "title": "6. Совместная работа по моделям",
+        "type": "HEADER",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 76748,
+        "index": 3750,
+        "title": "Практическое применение моделирования",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": 76627,
+        "updatedPrevVersionSectionId": 76627
+      }
+    ],
+    "course": {
+      "id": 185,
+      "path": "modeling-1-r2",
+      "productCode": "modeling-1-r2",
+      "name": "R2. Моделирование как основа коммуникации и лидерства",
+      "authors": "П. Медведева, В. Агроскин, А. Лубенченко",
+      "description": "",
+      "activeVersionId": 772,
+      "activeVersion": "2026-06-30T0620",
+      "activeVersionChangeLog": "Обновлены разделы с R2.6:9 и до конца руководства.",
+      "precondition": null,
+      "online": true,
+      "deprecated": false,
+      "hidden": false,
+      "roleRestriction": [],
+      "qlBegin": null,
+      "qlFinish": null,
+      "index": null,
+      "testIndex": null,
+      "discussion": null,
+      "test": false,
+      "unpublishedVersion": null,
+      "versions": null
+    },
+    "symbolCount": 227767
+  }
+]
