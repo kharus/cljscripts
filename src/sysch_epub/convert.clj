@@ -120,6 +120,14 @@
                      (= course-slug (:coursePath %))))
        first))
 
+(defn ->course-enrollment
+  "Anti-corruption translation: raw courses-passing JSON -> domain vocabulary."
+  [raw-passing]
+  {:id (:id raw-passing)
+   :course-path (:coursePath raw-passing)
+   :course-version-id (:courseVersionId raw-passing)
+   :current-section-id (:currentSectionId raw-passing)})
+
 (defn extract-course-sections [course-meta]
   (->> course-meta
        :sections
@@ -181,25 +189,26 @@
   (let [[h t] (split-with #(not= :header (:type %)) sections)]
     (concat h (aggregate-chapters t))))
 
-(defn -main [& args]
-  (let [course-slug (first args)
-        passings (download-aisyst-json passings-url)
-        latest-passing-num (reset! latest-passing
-                                   (-> (extract-latest-passing passings course-slug)
-                                       :id))
-        course-meta (download-course-metadata course-slug)
-        course-sections (extract-course-sections (latest course-meta))
-        text-only-course-sections (filter #(= :text (:type %)) course-sections)
-        enriched-course-sections (map attach-article text-only-course-sections)
-        image-urls (mapcat extract-image-urls enriched-course-sections)
-        epub-dir (fs/path "target" course-slug)
-        target-path (fs/path epub-dir "OEBPS" "content.opf")
-        target-section-folder (fs/path epub-dir "OEBPS" "Text")
-        images (map (partial download-image-aisyst (fs/path epub-dir "OEBPS" "Images")) image-urls)
-        latest-course-meta (latest course-meta)
-        all-sections (extract-course-sections latest-course-meta)
-        toc-items (toc-sections all-sections)]
-    (fs/create-dirs "target")
+(defn convert-course
+  ([course-slug] (convert-course course-slug "target"))
+  ([course-slug output-root]
+   (let [passings (download-aisyst-json passings-url)
+         latest-passing-num (reset! latest-passing
+                                     (-> (extract-latest-passing passings course-slug)
+                                         :id))
+         course-meta (download-course-metadata course-slug)
+         course-sections (extract-course-sections (latest course-meta))
+         text-only-course-sections (filter #(= :text (:type %)) course-sections)
+         enriched-course-sections (map attach-article text-only-course-sections)
+         image-urls (mapcat extract-image-urls enriched-course-sections)
+         epub-dir (fs/path output-root course-slug)
+         target-path (fs/path epub-dir "OEBPS" "content.opf")
+         target-section-folder (fs/path epub-dir "OEBPS" "Text")
+         images (map (partial download-image-aisyst (fs/path epub-dir "OEBPS" "Images")) image-urls)
+         latest-course-meta (latest course-meta)
+         all-sections (extract-course-sections latest-course-meta)
+         toc-items (toc-sections all-sections)]
+    (fs/create-dirs output-root)
     (fs/copy-tree "resources/epub-template" epub-dir {:replace-existing true})
 
 
@@ -225,7 +234,10 @@
             (str epub-dir)
             {:root (str epub-dir)})
     (print
-     (selmer/render "Latest passing id: {{passing-id}}\n" {:passing-id @latest-passing}))))
+     (selmer/render "Latest passing id: {{passing-id}}\n" {:passing-id @latest-passing})))))
+
+(defn -main [& args]
+  (convert-course (first args)))
 
 
 (comment
