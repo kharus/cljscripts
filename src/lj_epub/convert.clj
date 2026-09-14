@@ -46,7 +46,7 @@
 (defn extract-article-jsoup-doc
   [^Document jsoup-doc]
   (-> jsoup-doc
-      (jsoup-select-doc "article.entry-content")
+      (jsoup-select-doc "div.aentry-post__text")
       first
       :outer-html
       (str/replace #"<br>--" "<li>")))
@@ -60,11 +60,10 @@
 
 (defn extract-date-jsoup-doc
   [^Document jsoup-doc]
-  (-> (jsoup-select-doc jsoup-doc "time")
-      first
-      :text ;"2025-04-04 16:40:00"
-      (str/split #" ")
-      first))
+  (let [raw (-> (jsoup-select-doc jsoup-doc "time") first :text str/trim)
+        in-fmt (java.text.SimpleDateFormat. "MMMM d yyyy, HH:mm" java.util.Locale/ENGLISH)
+        out-fmt (java.text.SimpleDateFormat. "yyyy-MM-dd")]
+    (.format out-fmt (.parse in-fmt raw))))
 
 (defn derive-file-name
   [^Document jsoup-doc]
