@@ -81,6 +81,7 @@
                       (http/get
                        url
                        {:headers (read-headers)}))]
+        (fs/create-dirs "cache")
         (spit cache-path response)
         response))))
 
@@ -89,6 +90,7 @@
   (let [cache-file (url-to-cache-file url)
         cache-path (str "cache/" cache-file)]
     (when-not (fs/exists? cache-path)
+      (fs/create-dirs "cache")
       (io/copy
        (:body (http/get url {:as :stream :headers (read-headers)}))
        (fs/file cache-path)))
@@ -111,7 +113,9 @@
 (defn extract-latest-passing
   [passings course-slug]
   (->> passings
-       (filter #(and (not (:archived %)) (= course-slug (:coursePath %))))
+       (filter #(and (not (:archived %))
+                     (= course-slug (:coursePath %))
+                     (not= "NONE" (:status %))))
        first))
 
 (defn extract-course-sections [course-meta]
@@ -130,10 +134,11 @@
 
 (defn section-url
   [section]
-  (selmer/render
-   "https://aisystant.system-school.ru/api/courses/text/{{section-id}}?course-passing={{passing-id}}"
-   {:section-id (:id section)
-    :passing-id @latest-passing}))
+  (let [base (str "https://aisystant.system-school.ru/api/courses/text/" (:id section))
+        passing @latest-passing]
+    (if passing
+      (str base "?course-passing=" passing)
+      base)))
 
 (defn download-section [section]
   (download-aisyst (section-url section)))
@@ -147,11 +152,13 @@
                "<img src=\"../Images/$1\""))
 
 (defn attach-article [section]
-  (assoc section :article (embed-image-urls (download-section section))))
+  (assoc section 
+         :article (embed-image-urls (download-section section))
+         :raw-article (download-section section)))
 
 (defn extract-image-urls
   [section]
-  (as-> (:article section) v
+  (as-> (:raw-article section) v
     (Jsoup/parse v)
     (jsoup-select-doc v "img")
     (map #(get-in % [:attrs "src"]) v)
