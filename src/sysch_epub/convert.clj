@@ -47,8 +47,6 @@
    "jpeg"  "image/jpeg"
    "png" "image/png"})
 
-(def latest-passing (atom 0))
-
 (defn remap-page-type [page]
   (assoc page :type (page-type-map (:type page))))
 
@@ -207,7 +205,6 @@
   ([course-slug output-root]
    (let [passings (download-aisyst-json passings-url)
          enrollment (resolve-current-enrollment passings course-slug)
-         latest-passing-num (reset! latest-passing (:id enrollment))
          course-meta (download-course-metadata course-slug)
          course-sections (extract-course-sections (->course-version (latest course-meta)))
          text-only-course-sections (filter #(= :text (:type %)) course-sections)
@@ -246,7 +243,7 @@
             (str epub-dir)
             {:root (str epub-dir)})
     (print
-     (selmer/render "Latest passing id: {{passing-id}}\n" {:passing-id @latest-passing})))))
+     (selmer/render "Latest passing id: {{passing-id}}\n" {:passing-id (:id enrollment)})))))
 
 (defn -main [& args]
   (convert-course (first args)))
