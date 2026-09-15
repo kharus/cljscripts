@@ -153,15 +153,15 @@
         (selmer/render-file "Section0001.xhtml" section)))
 
 (defn section-url
-  [section]
+  [enrollment section]
   (let [base (str "https://aisystant.system-school.ru/api/courses/text/" (:id section))
-        passing @latest-passing]
-    (if passing
-      (str base "?course-passing=" passing)
+        passing-id (:id enrollment)]
+    (if passing-id
+      (str base "?course-passing=" passing-id)
       base)))
 
-(defn download-section [section]
-  (download-aisyst (section-url section)))
+(defn download-section [enrollment section]
+  (download-aisyst (section-url enrollment section)))
 
 (defn embed-image-urls
   "Change path of the images to relative URL inside epub"
@@ -171,10 +171,10 @@
                #"<img src=\"[^\"]*/(\d+\.[^\"]+)\""
                "<img src=\"../Images/$1\""))
 
-(defn attach-article [section]
-  (assoc section 
-         :article (embed-image-urls (download-section section))
-         :raw-article (download-section section)))
+(defn attach-article [enrollment section]
+  (assoc section
+         :article (embed-image-urls (download-section enrollment section))
+         :raw-article (download-section enrollment section)))
 
 (defn extract-image-urls
   [section]
@@ -211,7 +211,7 @@
          course-meta (download-course-metadata course-slug)
          course-sections (extract-course-sections (->course-version (latest course-meta)))
          text-only-course-sections (filter #(= :text (:type %)) course-sections)
-         enriched-course-sections (map attach-article text-only-course-sections)
+         enriched-course-sections (map (partial attach-article enrollment) text-only-course-sections)
          image-urls (mapcat extract-image-urls enriched-course-sections)
          epub-dir (fs/path output-root course-slug)
          target-path (fs/path epub-dir "OEBPS" "content.opf")

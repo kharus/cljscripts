@@ -75,3 +75,11 @@
               :course-name "R2. Моделирование как основа коммуникации и лидерства"
               :sections (:sections raw)}
              (->course-version raw))))))
+
+(deftest section-url-test
+  (testing "appends course-passing from the enrollment's id"
+    (is (= "https://aisystant.system-school.ru/api/courses/text/79936?course-passing=50001"
+           (section-url {:id 50001} {:id 79936}))))
+  (testing "omits course-passing when there's no enrollment"
+    (is (= "https://aisystant.system-school.ru/api/courses/text/79936"
+           (section-url nil {:id 79936})))))
