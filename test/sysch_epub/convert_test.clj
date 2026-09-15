@@ -2,6 +2,7 @@
   (:require [clojure.test :refer :all]
             [babashka.json :as json]
             [babashka.fs :as fs]
+            [clojure.string :as str]
             [sysch-epub.convert :refer :all]))
 
 (defn load-sample [filename]
@@ -58,6 +59,10 @@
                        (remove #(= ".gitkeep" (fs/file-name %)))
                        count))
             "the 3 images referenced by the image-bearing section are downloaded")
+        (is (str/includes?
+             (slurp (str (fs/path output-root "modeling-1-r2" "OEBPS" "Text" "nav.xhtml")))
+             "Fake Course Name")
+            "nav title comes from the translated course-name")
         (finally
           (fs/delete-tree (fs/path output-root)))))))
 
