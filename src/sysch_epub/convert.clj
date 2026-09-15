@@ -112,6 +112,14 @@
 (defn latest [course-meta]
   (last (sort-by :version course-meta)))
 
+(defn ->course-version
+  "Anti-corruption translation: raw course-versions JSON -> domain vocabulary."
+  [raw-version]
+  {:id (:id raw-version)
+   :published-at (:version raw-version)
+   :course-name (get-in raw-version [:course :name])
+   :sections (:sections raw-version)})
+
 (def passings-url
   "https://aisystant.system-school.ru/api/courses/courses-passing")
 

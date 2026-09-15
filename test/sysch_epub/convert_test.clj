@@ -60,3 +60,13 @@
             "the 3 images referenced by the image-bearing section are downloaded")
         (finally
           (fs/delete-tree (fs/path output-root)))))))
+
+(deftest ->course-version-test
+  (let [course-meta (load-sample "course-versions-modeling-1-r2-sample.json")
+        raw (latest course-meta)]
+    (testing "translates raw course-versions JSON into domain vocabulary"
+      (is (= {:id 772
+              :published-at "2026-06-30T0620"
+              :course-name "R2. Моделирование как основа коммуникации и лидерства"
+              :sections (:sections raw)}
+             (->course-version raw))))))
