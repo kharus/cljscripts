@@ -1,6 +1,7 @@
 (ns sysch-epub.convert-test
   (:require [clojure.test :refer :all]
             [babashka.json :as json]
+            [babashka.fs :as fs]
             [sysch-epub.convert :refer :all]))
 
 (defn load-sample [filename]
@@ -29,3 +30,24 @@
               :course-version-id 772
               :current-section-id 79933}
              (->course-enrollment raw))))))
+
+(deftest convert-course-golden-test
+  ;; golden-cache is trimmed to 1 course version with 4 sections
+  ;; (HEADER 79932, TEXT 79933 [no images], TEST 79934 [excluded from output],
+  ;; TEXT 79965 [3 images]) - just enough to exercise every branch once.
+  (testing "produces the expected epub entirely from the golden cache, no network"
+    (let [output-root "target-golden-test"]
+      (try
+        (binding [*cache-dir* "test/resources/sysch_epub/golden-cache"]
+          (convert-course "modeling-1-r2" output-root))
+        (is (fs/exists? (fs/path output-root "modeling-1-r2.epub")))
+        (is (= 2 (->> (fs/list-dir (fs/path output-root "modeling-1-r2" "OEBPS" "Text"))
+                       (remove #(= "nav.xhtml" (fs/file-name %)))
+                       count))
+            "only the 2 TEXT sections get rendered, HEADER/TEST excluded")
+        (is (= 3 (->> (fs/list-dir (fs/path output-root "modeling-1-r2" "OEBPS" "Images"))
+                       (remove #(= ".gitkeep" (fs/file-name %)))
+                       count))
+            "the 3 images referenced by the image-bearing section are downloaded")
+        (finally
+          (fs/delete-tree (fs/path output-root)))))))

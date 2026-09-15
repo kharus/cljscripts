@@ -1,0 +1,22 @@
+[
+  {
+    "id": 50001,
+    "userId": 1,
+    "courseId": 185,
+    "courseName": "Fake Course Name",
+    "coursePath": "modeling-1-r2",
+    "courseVersionId": 772,
+    "courseVersionName": "fake-version",
+    "courseVersionSymbolCount": 0,
+    "status": "NONE",
+    "started": "2000-01-01T00:00:00",
+    "finished": null,
+    "certificateId": null,
+    "currentSectionPassingId": 1,
+    "currentSectionId": 79933,
+    "accessed": "2000-01-01T00:00:00",
+    "archived": false,
+    "anew": false,
+    "sectionPassings": null
+  }
+]

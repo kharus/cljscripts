@@ -72,25 +72,27 @@
                  (str/replace (:query uri-work) "=" "-")])
       (fs/file-name (:path uri-work)))))
 
+(def ^:dynamic *cache-dir* "cache")
+
 (defn download-aisyst [url]
   (let [cache-file (url-to-cache-file url)
-        cache-path (str "cache/" cache-file)]
+        cache-path (str *cache-dir* "/" cache-file)]
     (if (fs/exists? cache-path)
       (slurp cache-path)
       (let [response (:body
                       (http/get
                        url
                        {:headers (read-headers)}))]
-        (fs/create-dirs "cache")
+        (fs/create-dirs *cache-dir*)
         (spit cache-path response)
         response))))
 
 (defn download-image-aisyst
   [epub-dir url]
   (let [cache-file (url-to-cache-file url)
-        cache-path (str "cache/" cache-file)]
+        cache-path (str *cache-dir* "/" cache-file)]
     (when-not (fs/exists? cache-path)
-      (fs/create-dirs "cache")
+      (fs/create-dirs *cache-dir*)
       (io/copy
        (:body (http/get url {:as :stream :headers (read-headers)}))
        (fs/file cache-path)))

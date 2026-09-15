@@ -1,0 +1,71 @@
+[
+  {
+    "id": 772,
+    "version": "2026-06-30T0620",
+    "test": false,
+    "changeLog": "fake changelog",
+    "sections": [
+      {
+        "id": 79932,
+        "index": 0,
+        "title": "Fake Header",
+        "type": "HEADER",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 79933,
+        "index": 50,
+        "title": "Fake Text No Images",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 79934,
+        "index": 100,
+        "title": "Fake Test Section",
+        "type": "TEST",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      },
+      {
+        "id": 79965,
+        "index": 200,
+        "title": "Fake Text With Images",
+        "type": "TEXT",
+        "path": null,
+        "prevVersionSectionId": null,
+        "updatedPrevVersionSectionId": null
+      }
+    ],
+    "course": {
+      "id": 185,
+      "path": "modeling-1-r2",
+      "productCode": "modeling-1-r2",
+      "name": "Fake Course Name",
+      "authors": "Fake Author",
+      "description": "",
+      "activeVersionId": 772,
+      "activeVersion": "2026-06-30T0620",
+      "activeVersionChangeLog": "fake",
+      "precondition": null,
+      "online": true,
+      "deprecated": false,
+      "hidden": false,
+      "roleRestriction": [],
+      "qlBegin": null,
+      "qlFinish": null,
+      "index": null,
+      "testIndex": null,
+      "discussion": null,
+      "test": false,
+      "unpublishedVersion": null,
+      "versions": null
+    },
+    "symbolCount": 0
+  }
+]
