@@ -31,6 +31,15 @@
               :current-section-id 79933}
              (->course-enrollment raw))))))
 
+(deftest resolve-current-enrollment-test
+  (let [passings (load-sample "courses-passing-sample.json")]
+    (testing "resolves and translates the active enrollment for a course"
+      (is (= {:id 50001
+              :course-path "modeling-1-r2"
+              :course-version-id 772
+              :current-section-id 79933}
+             (resolve-current-enrollment passings "modeling-1-r2"))))))
+
 (deftest convert-course-golden-test
   ;; golden-cache is trimmed to 1 course version with 4 sections
   ;; (HEADER 79932, TEXT 79933 [no images], TEST 79934 [excluded from output],
