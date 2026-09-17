@@ -219,7 +219,7 @@
 
   (nil? ())
 
-  (download-aisyst "https://aisystant.system-school.ru/api/courses/text/69632?course-passing=41433")
+  (aisystant/download-aisyst "https://aisystant.system-school.ru/api/courses/text/69632?course-passing=41433")
 
   (def q *1)
 
