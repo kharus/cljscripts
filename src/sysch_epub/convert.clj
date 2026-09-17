@@ -7,7 +7,8 @@
    [lambdaisland.uri :refer [uri]]
    [selmer.parser :as selmer]
    [clojure.string :as str]
-   [clojure.spec.alpha :as s])
+   [clojure.spec.alpha :as s]
+   [sysch-epub.aisystant :as aisystant])
   (:import
    [org.jsoup Jsoup]
    [org.jsoup.nodes Attribute Document Element])
@@ -42,70 +43,11 @@
    "TEXT" :text
    "TEST" :test})
 
-(def image-media-map
-  {"jpg"  "image/jpeg"
-   "jpeg"  "image/jpeg"
-   "png" "image/png"})
-
 (defn remap-page-type [page]
   (assoc page :type (page-type-map (:type page))))
 
 (defn course-sections-clj [raw-sections]
   (map remap-page-type raw-sections))
-
-(def course-root
-  "https://aisystant.system-school.ru/api/courses/course-versions?course-path=")
-
-(defn read-headers []
-  (-> "fetch.json"
-      slurp
-      json/read-str
-      :headers))
-
-(defn url-to-cache-file [url]
-  (let [uri-work (uri url)]
-    (if (:query uri-work)
-      (str/join "-"
-                [(fs/file-name (:path uri-work))
-                 (str/replace (:query uri-work) "=" "-")])
-      (fs/file-name (:path uri-work)))))
-
-(def ^:dynamic *cache-dir* "cache")
-
-(defn download-aisyst [url]
-  (let [cache-file (url-to-cache-file url)
-        cache-path (str *cache-dir* "/" cache-file)]
-    (if (fs/exists? cache-path)
-      (slurp cache-path)
-      (let [response (:body
-                      (http/get
-                       url
-                       {:headers (read-headers)}))]
-        (fs/create-dirs *cache-dir*)
-        (spit cache-path response)
-        response))))
-
-(defn download-image-aisyst
-  [epub-dir url]
-  (let [cache-file (url-to-cache-file url)
-        cache-path (str *cache-dir* "/" cache-file)]
-    (when-not (fs/exists? cache-path)
-      (fs/create-dirs *cache-dir*)
-      (io/copy
-       (:body (http/get url {:as :stream :headers (read-headers)}))
-       (fs/file cache-path)))
-    (fs/copy cache-path epub-dir {:replace-existing true})
-    {:id (str "img-" (fs/strip-ext cache-file))
-     :file-name cache-file
-     :media-type (get image-media-map (fs/extension cache-file))}))
-
-(defn download-aisyst-json [url]
-  (json/read-str
-   (download-aisyst url)))
-
-(defn download-course-metadata [course-slug]
-  (download-aisyst-json
-   (str course-root course-slug)))
 
 (defn latest [course-meta]
   (last (sort-by :version course-meta)))
@@ -118,8 +60,6 @@
    :course-name (get-in raw-version [:course :name])
    :sections (:sections raw-version)})
 
-(def passings-url
-  "https://aisystant.system-school.ru/api/courses/courses-passing")
 
 (defn extract-latest-passing
   [passings course-slug]
@@ -159,7 +99,7 @@
       base)))
 
 (defn download-section [enrollment section]
-  (download-aisyst (section-url enrollment section)))
+  (aisystant/download-aisyst (section-url enrollment section)))
 
 (defn embed-image-urls
   "Change path of the images to relative URL inside epub"
@@ -203,9 +143,9 @@
 (defn convert-course
   ([course-slug] (convert-course course-slug "target"))
   ([course-slug output-root]
-   (let [passings (download-aisyst-json passings-url)
+   (let [passings (aisystant/download-aisyst-json aisystant/passings-url)
          enrollment (resolve-current-enrollment passings course-slug)
-         course-meta (download-course-metadata course-slug)
+         course-meta (aisystant/download-course-metadata course-slug)
          course-sections (extract-course-sections (->course-version (latest course-meta)))
          text-only-course-sections (filter #(= :text (:type %)) course-sections)
          enriched-course-sections (map (partial attach-article enrollment) text-only-course-sections)
@@ -213,7 +153,7 @@
          epub-dir (fs/path output-root course-slug)
          target-path (fs/path epub-dir "OEBPS" "content.opf")
          target-section-folder (fs/path epub-dir "OEBPS" "Text")
-         images (map (partial download-image-aisyst (fs/path epub-dir "OEBPS" "Images")) image-urls)
+         images (map (partial aisystant/download-image-aisyst (fs/path epub-dir "OEBPS" "Images")) image-urls)
          course-version (->course-version (latest course-meta))
          all-sections (extract-course-sections course-version)
          toc-items (toc-sections all-sections)]
@@ -251,12 +191,12 @@
 
 (comment
   (def passings
-    (download-aisyst-json
+    (aisystant/download-aisyst-json
      "https://aisystant.system-school.ru/api/courses/courses-passing"))
 
   (def course-slug "ontologics-sobr")
 
-  (def course-meta (download-course-metadata course-slug))
+  (def course-meta (aisystant/download-course-metadata course-slug))
 
   (reset! latest-passing
           (-> (extract-latest-passing passings course-slug)

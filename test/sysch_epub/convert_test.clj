@@ -3,7 +3,8 @@
             [babashka.json :as json]
             [babashka.fs :as fs]
             [clojure.string :as str]
-            [sysch-epub.convert :refer :all]))
+            [sysch-epub.convert :refer :all]
+            [sysch-epub.aisystant :as aisystant]))
 
 (defn load-sample [filename]
   (json/read-str (slurp (str "test/resources/sysch_epub/" filename))))
@@ -48,7 +49,7 @@
   (testing "produces the expected epub entirely from the golden cache, no network"
     (let [output-root "target-golden-test"]
       (try
-        (binding [*cache-dir* "test/resources/sysch_epub/golden-cache"]
+        (binding [aisystant/*cache-dir* "test/resources/sysch_epub/golden-cache"]
           (convert-course "modeling-1-r2" output-root))
         (is (fs/exists? (fs/path output-root "modeling-1-r2.epub")))
         (is (= 2 (->> (fs/list-dir (fs/path output-root "modeling-1-r2" "OEBPS" "Text"))
