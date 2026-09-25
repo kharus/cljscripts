@@ -92,11 +92,7 @@
 
 (defn section-url
   [enrollment section]
-  (let [base (str "https://aisystant.system-school.ru/api/courses/text/" (:id section))
-        passing-id (:id enrollment)]
-    (if passing-id
-      (str base "?course-passing=" passing-id)
-      base)))
+  (aisystant/section-text-url (:id enrollment) (:id section)))
 
 (defn download-section [enrollment section]
   (aisystant/download-aisyst (section-url enrollment section)))
@@ -120,7 +116,7 @@
     (Jsoup/parse v)
     (jsoup-select-doc v "img")
     (map #(get-in % [:attrs "src"]) v)
-    (map #(str "https://aisystant.system-school.ru" %) v)))
+    (map aisystant/image-url v)))
 
 (defn aggregate-chapters [sections]
   (loop [ch-sections sections acc []]

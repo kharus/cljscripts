@@ -28,7 +28,7 @@
       (str base "?course-passing=" passing-id)
       base)))
 
-(defn resolve-image-url [path]
+(defn image-url [path]
   (str api-host path))
 
 (defn read-headers []

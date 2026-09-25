@@ -10,7 +10,7 @@
     (is (= "https://aisystant.system-school.ru/api/courses/text/79936"
            (section-text-url nil 79936)))))
 
-(deftest resolve-image-url-test
+(deftest image-url-test
   (testing "prepends the host to a relative image path"
     (is (= "https://aisystant.system-school.ru/text/modeling-1-r2/2026-06-30T0620/1650/0.jpeg"
-           (resolve-image-url "/text/modeling-1-r2/2026-06-30T0620/1650/0.jpeg")))))
+           (image-url "/text/modeling-1-r2/2026-06-30T0620/1650/0.jpeg")))))
