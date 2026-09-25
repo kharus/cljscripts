@@ -20,6 +20,17 @@
 (def passings-url
   "https://aisystant.system-school.ru/api/courses/courses-passing")
 
+(def api-host "https://aisystant.system-school.ru")
+
+(defn section-text-url [passing-id section-id]
+  (let [base (str api-host "/api/courses/text/" section-id)]
+    (if passing-id
+      (str base "?course-passing=" passing-id)
+      base)))
+
+(defn resolve-image-url [path]
+  (str api-host path))
+
 (defn read-headers []
   (-> "fetch.json"
       slurp
