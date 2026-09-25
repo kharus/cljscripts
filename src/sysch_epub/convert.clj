@@ -187,44 +187,30 @@
 
 (comment
   (def passings
-    (aisystant/download-aisyst-json
-     "https://aisystant.system-school.ru/api/courses/courses-passing"))
+    (aisystant/download-aisyst-json aisystant/passings-url))
 
   (def course-slug "ontologics-sobr")
 
   (def course-meta (aisystant/download-course-metadata course-slug))
 
-  (reset! latest-passing
-          (-> (extract-latest-passing passings course-slug)
-              :id))
+  (def enrollment (resolve-current-enrollment passings course-slug))
 
-  @latest-passing
-
-
-  (def course-sections (extract-course-sections (last course-meta)))
+  (def course-sections (extract-course-sections (->course-version (latest course-meta))))
 
   (def text-only-course-sections (filter #(= :text (:type %)) course-sections))
-  (def enriched-course-sections (map attach-article text-only-course-sections))
+  (def enriched-course-sections (map (partial attach-article enrollment) text-only-course-sections))
 
   (filter #(= (:index %) 4150) enriched-course-sections)
 
-  (def enriched-course-sections
-    (map attach-article course-sections))
-
   (count enriched-course-sections)
-
-  (nil? ())
 
   (aisystant/download-aisyst "https://aisystant.system-school.ru/api/courses/text/69632?course-passing=41433")
 
   (def q *1)
 
-  ;<img src="[^"]*\/(\d+)\.jpeg" alt="">
-  
   (str/replace "<img src=\"/text/ontologics-sobr/2025-06-19T2004/4150/7.jpeg\" alt=\"\">"
                #"<img src=\"[^\"]*/(\d+\.[^\"]+)\""
                "<img src=\"../Images/$1\"")
-  
   (first *1)
   (println (:article *1))
   :rcf)
