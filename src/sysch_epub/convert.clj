@@ -46,7 +46,7 @@
 (defn remap-page-type [page]
   (assoc page :type (page-type-map (:type page))))
 
-(defn course-sections-clj [raw-sections]
+(defn remap-page-types [raw-sections]
   (map remap-page-type raw-sections))
 
 (defn latest [course-meta]
@@ -79,7 +79,7 @@
 (defn extract-course-sections [course-meta]
   (->> course-meta
        :sections
-       course-sections-clj
+       remap-page-types
        (map #(select-keys % [:id :index :title :type]))
        (map #(assoc % :file-name (format "%05d.xhtml" (:index %))))))
 
@@ -98,8 +98,8 @@
   (aisystant/download-aisyst (section-url enrollment section)))
 
 (defn embed-image-urls
-  "Change path of the images to relative URL inside epub"
-  ;<img src="/text/ontologics-sobr/2025-06-19T2004/4150/7.jpeg" alt=""/><img alt="7" src="../Images/7.jpeg"/>
+  "Change path of the images to relative URL inside epub.
+  e.g. <img src=\"/text/ontologics-sobr/2025-06-19T2004/4150/7.jpeg\" alt=\"\"/> -> <img alt=\"7\" src=\"../Images/7.jpeg\"/>"
   [article]
   (str/replace article
                #"<img src=\"[^\"]*/(\d+\.[^\"]+)\""

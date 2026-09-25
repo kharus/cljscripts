@@ -4,7 +4,7 @@
    [babashka.http-client :as http]
    [babashka.json :as json]
    [clojure.java.io :as io]
-   [lambdaisland.uri :refer [uri]]
+   [lambdaisland.uri :as uri]
    [clojure.string :as str]))
 
 (def ^:dynamic *cache-dir* "cache")
@@ -14,13 +14,13 @@
    "jpeg"  "image/jpeg"
    "png" "image/png"})
 
+(def api-host "https://aisystant.system-school.ru")
+
 (def course-root
-  "https://aisystant.system-school.ru/api/courses/course-versions?course-path=")
+  (str api-host "/api/courses/course-versions?course-path="))
 
 (def passings-url
-  "https://aisystant.system-school.ru/api/courses/courses-passing")
-
-(def api-host "https://aisystant.system-school.ru")
+  (str api-host "/api/courses/courses-passing"))
 
 (defn section-text-url [passing-id section-id]
   (let [base (str api-host "/api/courses/text/" section-id)]
@@ -38,7 +38,7 @@
       :headers))
 
 (defn url-to-cache-file [url]
-  (let [uri-work (uri url)]
+  (let [uri-work (uri/uri url)]
     (if (:query uri-work)
       (str/join "-"
                 [(fs/file-name (:path uri-work))
