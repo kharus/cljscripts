@@ -1,20 +1,13 @@
 (ns sysch-epub.convert
   (:require
    [babashka.fs :as fs]
-   [babashka.http-client :as http]
-   [babashka.json :as json]
-   [clojure.java.io :as io]
-   [lambdaisland.uri :refer [uri]]
    [selmer.parser :as selmer]
    [clojure.string :as str]
-   [clojure.spec.alpha :as s]
    [sysch-epub.aisystant :as aisystant])
   (:import
    [org.jsoup Jsoup]
-   [org.jsoup.nodes Attribute Document Element])
+   [org.jsoup.nodes Attribute Element])
   (:gen-class))
-
-(s/def :section/index int?)
 
 (defn element->m
   [^Element element]
@@ -149,7 +142,6 @@
          epub-dir (fs/path output-root course-slug)
          target-path (fs/path epub-dir "OEBPS" "content.opf")
          target-section-folder (fs/path epub-dir "OEBPS" "Text")
-         images (map (partial aisystant/download-image-aisyst (fs/path epub-dir "OEBPS" "Images")) image-urls)
          course-version (->course-version (latest course-meta))
          all-sections (extract-course-sections course-version)
          toc-items (toc-sections all-sections)]
@@ -157,13 +149,14 @@
     (fs/copy-tree "resources/epub-template" epub-dir {:replace-existing true})
 
 
-    (spit (str target-path)
-          (selmer/render-file "content-book.opf"
-                              {:title course-slug
-                               :sections enriched-course-sections
-                               :images images
-                               :uuid (java.util.UUID/randomUUID)
-                               :now (.format java.time.format.DateTimeFormatter/ISO_INSTANT (java.time.Instant/now))}))
+    (let [images (mapv (partial aisystant/download-image-aisyst (fs/path epub-dir "OEBPS" "Images")) image-urls)]
+      (spit (str target-path)
+            (selmer/render-file "content-book.opf"
+                                {:title course-slug
+                                 :sections enriched-course-sections
+                                 :images images
+                                 :uuid (java.util.UUID/randomUUID)
+                                 :now (.format java.time.format.DateTimeFormatter/ISO_INSTANT (java.time.Instant/now))})))
 
     (fs/delete-if-exists (fs/path target-section-folder "nav.xhtml"))
 

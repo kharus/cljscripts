@@ -84,3 +84,19 @@
   (testing "omits course-passing when there's no enrollment"
     (is (= "https://aisystant.system-school.ru/api/courses/text/79936"
            (section-url nil {:id 79936})))))
+
+(deftest images-downloaded-into-existing-dir-test
+  (testing "image downloads only happen after the epub template (and its Images dir) is in place"
+    (let [output-root "target-golden-test"
+          real-download aisystant/download-image-aisyst
+          dir-existed-at-call (atom [])]
+      (try
+        (with-redefs [aisystant/download-image-aisyst
+                      (fn [images-dir url]
+                        (swap! dir-existed-at-call conj (fs/exists? images-dir))
+                        (real-download images-dir url))]
+          (binding [aisystant/*cache-dir* "test/resources/sysch_epub/golden-cache"]
+            (convert-course "modeling-1-r2" output-root)))
+        (is (= [true true true] @dir-existed-at-call))
+        (finally
+          (fs/delete-tree (fs/path output-root)))))))
