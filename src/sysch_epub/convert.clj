@@ -1,19 +1,13 @@
 (ns sysch-epub.convert
   (:require
    [babashka.fs :as fs]
-   [babashka.http-client :as http]
-   [babashka.json :as json]
-   [clojure.java.io :as io]
-   [lambdaisland.uri :refer [uri]]
    [selmer.parser :as selmer]
    [clojure.string :as str]
-   [clojure.spec.alpha :as s])
+   [sysch-epub.aisystant :as aisystant])
   (:import
    [org.jsoup Jsoup]
-   [org.jsoup.nodes Attribute Document Element])
+   [org.jsoup.nodes Attribute Element])
   (:gen-class))
-
-(s/def :section/index int?)
 
 (defn element->m
   [^Element element]
@@ -42,76 +36,23 @@
    "TEXT" :text
    "TEST" :test})
 
-(def image-media-map
-  {"jpg"  "image/jpeg"
-   "jpeg"  "image/jpeg"
-   "png" "image/png"})
-
-(def latest-passing (atom 0))
-
 (defn remap-page-type [page]
   (assoc page :type (page-type-map (:type page))))
 
-(defn course-sections-clj [raw-sections]
+(defn remap-page-types [raw-sections]
   (map remap-page-type raw-sections))
-
-(def course-root
-  "https://aisystant.system-school.ru/api/courses/course-versions?course-path=")
-
-(defn read-headers []
-  (-> "fetch.json"
-      slurp
-      json/read-str
-      :headers))
-
-(defn url-to-cache-file [url]
-  (let [uri-work (uri url)]
-    (if (:query uri-work)
-      (str/join "-"
-                [(fs/file-name (:path uri-work))
-                 (str/replace (:query uri-work) "=" "-")])
-      (fs/file-name (:path uri-work)))))
-
-(defn download-aisyst [url]
-  (let [cache-file (url-to-cache-file url)
-        cache-path (str "cache/" cache-file)]
-    (if (fs/exists? cache-path)
-      (slurp cache-path)
-      (let [response (:body
-                      (http/get
-                       url
-                       {:headers (read-headers)}))]
-        (fs/create-dirs "cache")
-        (spit cache-path response)
-        response))))
-
-(defn download-image-aisyst
-  [epub-dir url]
-  (let [cache-file (url-to-cache-file url)
-        cache-path (str "cache/" cache-file)]
-    (when-not (fs/exists? cache-path)
-      (fs/create-dirs "cache")
-      (io/copy
-       (:body (http/get url {:as :stream :headers (read-headers)}))
-       (fs/file cache-path)))
-    (fs/copy cache-path epub-dir {:replace-existing true})
-    {:id (str "img-" (fs/strip-ext cache-file))
-     :file-name cache-file
-     :media-type (get image-media-map (fs/extension cache-file))}))
-
-(defn download-aisyst-json [url]
-  (json/read-str
-   (download-aisyst url)))
-
-(defn download-course-metadata [course-slug]
-  (download-aisyst-json
-   (str course-root course-slug)))
 
 (defn latest [course-meta]
   (last (sort-by :version course-meta)))
 
-(def passings-url
-  "https://aisystant.system-school.ru/api/courses/courses-passing")
+(defn ->course-version
+  "Anti-corruption translation: raw course-versions JSON -> domain vocabulary."
+  [raw-version]
+  {:id (:id raw-version)
+   :published-at (:version raw-version)
+   :course-name (get-in raw-version [:course :name])
+   :sections (:sections raw-version)})
+
 
 (defn extract-latest-passing
   [passings course-slug]
@@ -120,10 +61,18 @@
                      (= course-slug (:coursePath %))))
        first))
 
+(defn ->course-enrollment
+  "Anti-corruption translation: raw courses-passing JSON -> domain vocabulary."
+  [raw-passing]
+  {:id (:id raw-passing)
+   :course-path (:coursePath raw-passing)
+   :course-version-id (:courseVersionId raw-passing)
+   :current-section-id (:currentSectionId raw-passing)})
+
 (defn extract-course-sections [course-meta]
   (->> course-meta
        :sections
-       course-sections-clj
+       remap-page-types
        (map #(select-keys % [:id :index :title :type]))
        (map #(assoc % :file-name (format "%05d.xhtml" (:index %))))))
 
@@ -135,28 +84,24 @@
         (selmer/render-file "Section0001.xhtml" section)))
 
 (defn section-url
-  [section]
-  (let [base (str "https://aisystant.system-school.ru/api/courses/text/" (:id section))
-        passing @latest-passing]
-    (if passing
-      (str base "?course-passing=" passing)
-      base)))
+  [enrollment section]
+  (aisystant/section-text-url (:id enrollment) (:id section)))
 
-(defn download-section [section]
-  (download-aisyst (section-url section)))
+(defn download-section [enrollment section]
+  (aisystant/download-aisyst (section-url enrollment section)))
 
 (defn embed-image-urls
-  "Change path of the images to relative URL inside epub"
-  ;<img src="/text/ontologics-sobr/2025-06-19T2004/4150/7.jpeg" alt=""/><img alt="7" src="../Images/7.jpeg"/>
+  "Change path of the images to relative URL inside epub.
+  e.g. <img src=\"/text/ontologics-sobr/2025-06-19T2004/4150/7.jpeg\" alt=\"\"/> -> <img alt=\"7\" src=\"../Images/7.jpeg\"/>"
   [article]
   (str/replace article
                #"<img src=\"[^\"]*/(\d+\.[^\"]+)\""
                "<img src=\"../Images/$1\""))
 
-(defn attach-article [section]
-  (assoc section 
-         :article (embed-image-urls (download-section section))
-         :raw-article (download-section section)))
+(defn attach-article [enrollment section]
+  (assoc section
+         :article (embed-image-urls (download-section enrollment section))
+         :raw-article (download-section enrollment section)))
 
 (defn extract-image-urls
   [section]
@@ -164,7 +109,7 @@
     (Jsoup/parse v)
     (jsoup-select-doc v "img")
     (map #(get-in % [:attrs "src"]) v)
-    (map #(str "https://aisystant.system-school.ru" %) v)))
+    (map aisystant/image-url v)))
 
 (defn aggregate-chapters [sections]
   (loop [ch-sections sections acc []]
@@ -181,42 +126,44 @@
   (let [[h t] (split-with #(not= :header (:type %)) sections)]
     (concat h (aggregate-chapters t))))
 
-(defn -main [& args]
-  (let [course-slug (first args)
-        passings (download-aisyst-json passings-url)
-        latest-passing-num (reset! latest-passing
-                                   (-> (extract-latest-passing passings course-slug)
-                                       :id))
-        course-meta (download-course-metadata course-slug)
-        course-sections (extract-course-sections (latest course-meta))
-        text-only-course-sections (filter #(= :text (:type %)) course-sections)
-        enriched-course-sections (map attach-article text-only-course-sections)
-        image-urls (mapcat extract-image-urls enriched-course-sections)
-        epub-dir (fs/path "target" course-slug)
-        target-path (fs/path epub-dir "OEBPS" "content.opf")
-        target-section-folder (fs/path epub-dir "OEBPS" "Text")
-        images (map (partial download-image-aisyst (fs/path epub-dir "OEBPS" "Images")) image-urls)
-        latest-course-meta (latest course-meta)
-        all-sections (extract-course-sections latest-course-meta)
-        toc-items (toc-sections all-sections)]
-    (fs/create-dirs "target")
+(defn resolve-current-enrollment [passings course-slug]
+  (->course-enrollment (extract-latest-passing passings course-slug)))
+
+(defn convert-course
+  ([course-slug] (convert-course course-slug "target"))
+  ([course-slug output-root]
+   (let [passings (aisystant/download-aisyst-json aisystant/passings-url)
+         enrollment (resolve-current-enrollment passings course-slug)
+         course-meta (aisystant/download-course-metadata course-slug)
+         course-sections (extract-course-sections (->course-version (latest course-meta)))
+         text-only-course-sections (filter #(= :text (:type %)) course-sections)
+         enriched-course-sections (map (partial attach-article enrollment) text-only-course-sections)
+         image-urls (mapcat extract-image-urls enriched-course-sections)
+         epub-dir (fs/path output-root course-slug)
+         target-path (fs/path epub-dir "OEBPS" "content.opf")
+         target-section-folder (fs/path epub-dir "OEBPS" "Text")
+         course-version (->course-version (latest course-meta))
+         all-sections (extract-course-sections course-version)
+         toc-items (toc-sections all-sections)]
+    (fs/create-dirs output-root)
     (fs/copy-tree "resources/epub-template" epub-dir {:replace-existing true})
 
 
-    (spit (str target-path)
-          (selmer/render-file "content-book.opf"
-                              {:title course-slug
-                               :sections enriched-course-sections
-                               :images images
-                               :uuid (java.util.UUID/randomUUID)
-                               :now (.format java.time.format.DateTimeFormatter/ISO_INSTANT (java.time.Instant/now))}))
+    (let [images (mapv (partial aisystant/download-image-aisyst (fs/path epub-dir "OEBPS" "Images")) image-urls)]
+      (spit (str target-path)
+            (selmer/render-file "content-book.opf"
+                                {:title course-slug
+                                 :sections enriched-course-sections
+                                 :images images
+                                 :uuid (java.util.UUID/randomUUID)
+                                 :now (.format java.time.format.DateTimeFormatter/ISO_INSTANT (java.time.Instant/now))})))
 
     (fs/delete-if-exists (fs/path target-section-folder "nav.xhtml"))
 
     (spit (str (fs/path target-section-folder "nav.xhtml"))
           (selmer/render-file
            "nav.xhtml"
-           {:title (get-in latest-course-meta [:course :name])
+           {:title (:course-name course-version)
             :toc-items toc-items
             :uuid (java.util.UUID/randomUUID)}))
 
@@ -225,49 +172,38 @@
             (str epub-dir)
             {:root (str epub-dir)})
     (print
-     (selmer/render "Latest passing id: {{passing-id}}\n" {:passing-id @latest-passing}))))
+     (selmer/render "Latest passing id: {{passing-id}}\n" {:passing-id (:id enrollment)})))))
+
+(defn -main [& args]
+  (convert-course (first args)))
 
 
 (comment
   (def passings
-    (download-aisyst-json
-     "https://aisystant.system-school.ru/api/courses/courses-passing"))
+    (aisystant/download-aisyst-json aisystant/passings-url))
 
   (def course-slug "ontologics-sobr")
 
-  (def course-meta (download-course-metadata course-slug))
+  (def course-meta (aisystant/download-course-metadata course-slug))
 
-  (reset! latest-passing
-          (-> (extract-latest-passing passings course-slug)
-              :id))
+  (def enrollment (resolve-current-enrollment passings course-slug))
 
-  @latest-passing
-
-
-  (def course-sections (extract-course-sections (last course-meta)))
+  (def course-sections (extract-course-sections (->course-version (latest course-meta))))
 
   (def text-only-course-sections (filter #(= :text (:type %)) course-sections))
-  (def enriched-course-sections (map attach-article text-only-course-sections))
+  (def enriched-course-sections (map (partial attach-article enrollment) text-only-course-sections))
 
   (filter #(= (:index %) 4150) enriched-course-sections)
 
-  (def enriched-course-sections
-    (map attach-article course-sections))
-
   (count enriched-course-sections)
 
-  (nil? ())
-
-  (download-aisyst "https://aisystant.system-school.ru/api/courses/text/69632?course-passing=41433")
+  (aisystant/download-aisyst "https://aisystant.system-school.ru/api/courses/text/69632?course-passing=41433")
 
   (def q *1)
 
-  ;<img src="[^"]*\/(\d+)\.jpeg" alt="">
-  
   (str/replace "<img src=\"/text/ontologics-sobr/2025-06-19T2004/4150/7.jpeg\" alt=\"\">"
                #"<img src=\"[^\"]*/(\d+\.[^\"]+)\""
                "<img src=\"../Images/$1\"")
-  
   (first *1)
   (println (:article *1))
   :rcf)
