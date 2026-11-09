@@ -8,8 +8,17 @@
    [selmer.parser :as selmer])
   (:import
    [org.jsoup Jsoup]
-   [org.jsoup.nodes Attribute Document Element])
+   [org.jsoup.nodes Attribute Document Element]
+   [org.jsoup.nodes Document$OutputSettings$Syntax])
   (:gen-class))
+
+(def image-media-map
+  {"jpg" "image/jpeg"
+   "jpeg" "image/jpeg"
+   "png" "image/png"
+   "gif" "image/gif"
+   "svg" "image/svg+xml"
+   "webp" "image/webp"})
 
 (defn hickory-html [raw-html]
   (->> (hc/as-hickory raw-html)
@@ -49,7 +58,7 @@
       (jsoup-select-doc "div.aentry-post__text")
       first
       :outer-html
-      (str/replace #"<br>--" "<li>")))
+      (str/replace #"<br\s*/?>--" "<li>")))
 
 (defn extract-title-jsoup-doc
   [^Document jsoup-doc]
@@ -67,16 +76,33 @@
 
 (defn derive-file-name
   [^Document jsoup-doc]
-  (let [title (extract-title-jsoup-doc jsoup-doc)
+  (let [title (-> (extract-title-jsoup-doc jsoup-doc)
+                  (str/replace #"\.+$" ""))
         pub-date (extract-date-jsoup-doc jsoup-doc)]
     (str pub-date "-" title)))
 
+(defn upgrade-image-urls!
+  "If an <img> is wrapped in an <a> tag linking to LiveJournal's _original image,
+   upgrade the <img> src to that high-resolution URL."
+  [^Document jsoup-doc]
+  (doseq [img (.select jsoup-doc "div.aentry-post__text img")]
+    (let [parent (.parent img)]
+      (when (and (= (.normalName parent) "a")
+                 (re-find #"_original\." (.attr parent "href")))
+        (.attr img "src" (.attr parent "href"))
+        (.attr parent "href" (.attr parent "href"))))))
+
 (defn download-image
   [epub-dir url]
-  (let [client (http/client (assoc-in http/default-client-opts [:ssl-context :insecure] true))]
+  (let [client (http/client (assoc-in http/default-client-opts [:ssl-context :insecure] true))
+        file-name (fs/file-name url)
+        target-file (fs/file (fs/path epub-dir file-name))]
     (io/copy
      (:body (http/get url {:as :stream :client client}))
-     (fs/file (fs/path epub-dir (fs/file-name url))))))
+     target-file)
+    {:id (str "img-" (fs/strip-ext file-name))
+     :file-name file-name
+     :media-type (get image-media-map (str/lower-case (fs/extension file-name)) "image/png")}))
 
 (defn embed-image-urls
   "Change path of the images to relative URL inside epub"
@@ -95,30 +121,34 @@
   (let [sourse-url (first args)
         sourse-html (slurp sourse-url)
         jsoup-doc (Jsoup/parse sourse-html)
+        _ (.syntax (.outputSettings jsoup-doc) Document$OutputSettings$Syntax/xml)
+        _ (upgrade-image-urls! jsoup-doc)
         epub-file (derive-file-name jsoup-doc)
         title (extract-title-jsoup-doc jsoup-doc)
         epub-dir (fs/path "target" epub-file)
         target-path (fs/path epub-dir "OEBPS" "content.opf")
         target-path-section (fs/path epub-dir "OEBPS" "Text" "Section0001.xhtml")
         article (extract-article-jsoup-doc jsoup-doc)
-        art-jsoup (Jsoup/parse article)]
+        art-jsoup (let [d (Jsoup/parse article)]
+                    (.syntax (.outputSettings d) Document$OutputSettings$Syntax/xml)
+                    d)]
     (fs/create-dirs "target")
-    (fs/copy-tree "resources/epub-template" epub-dir)
-    (run! (partial download-image (fs/path epub-dir "OEBPS" "Images"))
-          (extract-image-urls art-jsoup))
-
-    (spit (str target-path)
-          (selmer/render-file "content.opf"
-                              {:title title
-                               :uuid (java.util.UUID/randomUUID)
-                               :now (.format java.time.format.DateTimeFormatter/ISO_INSTANT (java.time.Instant/now))}))
-    (spit (str target-path-section)
-          (selmer/render-file "Section0001.xhtml"
-                              {:title title
-                               :article (embed-image-urls article)}))
-    (fs/zip (str epub-dir ".epub")
-            (str epub-dir)
-            {:root (str epub-dir)})))
+    (fs/copy-tree "resources/epub-template" epub-dir {:replace-existing true})
+    (let [images (mapv (partial download-image (fs/path epub-dir "OEBPS" "Images"))
+                       (distinct (extract-image-urls art-jsoup)))]
+      (spit (str target-path)
+            (selmer/render-file "content.opf"
+                                {:title title
+                                 :images images
+                                 :uuid (java.util.UUID/randomUUID)
+                                 :now (.format java.time.format.DateTimeFormatter/ISO_INSTANT (java.time.Instant/now))}))
+      (spit (str target-path-section)
+            (selmer/render-file "Section0001.xhtml"
+                                {:title title
+                                 :article (embed-image-urls article)}))
+      (fs/zip (str epub-dir ".epub")
+              (str epub-dir)
+              {:root (str epub-dir)}))))
 
 (comment
   (def sourse-html (slurp "1769890.html"))
